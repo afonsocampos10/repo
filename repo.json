@@ -1,0 +1,384 @@
+{
+  "name": "repo.serloko.com",
+  "identifier": "com.serloko.repo",
+  "subtitle": "serloko's repo",
+  "apps": [
+    {
+      "name": "Spotify",
+      "bundleIdentifier": "com.spotify.client",
+      "developerName": "scholars lounge",
+      "version": "9.1.84",
+      "versionDate": "2026-10-06",
+      "size": 146364662,
+      "minOSVersion": "14.0",
+      "localizedDescription": "scholars lounge | EeveeSpotifyReincarnated Spotify version: 9.1.84 EeveeSpotifyReincarnated version: 7.0.0 App by SideloadLabs Compiled by @z0_0_1  Th\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/78438.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/78438-EeveeSpotify-7.0.0-9.1.84.ipa",
+      "versions": [
+        {
+          "version": "9.1.84",
+          "date": "2026-10-06",
+          "localizedDescription": "scholars lounge | EeveeSpotifyReincarnated Spotify version: 9.1.84 EeveeSpotifyReincarnated version: 7.0.0 App by SideloadLabs Compiled by @z0_0_1  Th",
+          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/78438-EeveeSpotify-7.0.0-9.1.84.ipa",
+          "size": 146364662,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "scholars lounge | EeveeSpotifyReincarnated Spotify version: 9.1.84 EeveeSpotifyReincarnated version: 7.0.0 App by SideloadLabs Compiled by @z0_0_1  Th",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/78438.png",
+      "bundleID": "com.spotify.client",
+      "fullDate": "20261006030035",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Instagram",
+      "bundleIdentifier": "com.burbn.instagram",
+      "developerName": "@ipavault",
+      "version": "450.0.0",
+      "versionDate": "2026-10-06",
+      "size": 351072589,
+      "minOSVersion": "14.0",
+      "localizedDescription": "Variant: RyukGram 1.4.5\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/ipavault/756.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/ipavault/756-RyukGram%201.4.5%20%28IG%20450.0.0%29%20%5B@ipavault%5D.ipa",
+      "versions": [
+        {
+          "version": "450.0.0",
+          "date": "2026-10-06",
+          "localizedDescription": "Variant: RyukGram 1.4.5",
+          "downloadURL": "https://fastsign.dev/tg-ipa/ipavault/756-RyukGram%201.4.5%20%28IG%20450.0.0%29%20%5B@ipavault%5D.ipa",
+          "size": 351072589,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "Variant: RyukGram 1.4.5",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/ipavault/756.png",
+      "bundleID": "com.burbn.instagram",
+      "fullDate": "20261006030035",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Moovit",
+      "bundleIdentifier": "com.tranzmate.tranzmate1",
+      "developerName": "AppTesters IPA Repo",
+      "version": "5.202.0",
+      "versionDate": "2026-10-06",
+      "size": 146338894,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@blatants | Moovit: Bus & Transit Tracker  • Bundle ID: com.tranzmate.tranzmate1 • Updated to: 5.202.0 • Minimum iOS: 15.0 • Patched • Modifier: Moovi\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.tranzmate.tranzmate1.png",
+      "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/05-10-2026/Moovit_5.202.0_Premium_@thisismanpreets_apptesters.org.ipa",
+      "versions": [
+        {
+          "version": "5.202.0",
+          "date": "2026-10-06",
+          "localizedDescription": "@blatants | Moovit: Bus & Transit Tracker  • Bundle ID: com.tranzmate.tranzmate1 • Updated to: 5.202.0 • Minimum iOS: 15.0 • Patched • Modifier: Moovi",
+          "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/05-10-2026/Moovit_5.202.0_Premium_@thisismanpreets_apptesters.org.ipa",
+          "size": 146338894,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@blatants | Moovit: Bus & Transit Tracker  • Bundle ID: com.tranzmate.tranzmate1 • Updated to: 5.202.0 • Minimum iOS: 15.0 • Patched • Modifier: Moovi",
+      "tintColor": "000000",
+      "icon": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.tranzmate.tranzmate1.png",
+      "bundleID": "com.tranzmate.tranzmate1",
+      "fullDate": "20261006030035",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Mimo",
+      "bundleIdentifier": "com.getmimo.mimo",
+      "developerName": "AppTesters IPA Repo",
+      "version": "12.30.0",
+      "versionDate": "2026-10-06",
+      "size": 154863933,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@blatants | Mimo: Learn Coding/Programming  • Bundle ID: com.getmimo.mimo • Updated to: 12.30.0 • Minimum iOS: 18.0 • Patched • Modifier: Max Subscrip\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.getmimo.mimo.png",
+      "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/05-10-2026/Mimo_12.30.0_Pro_@thisismanpreets_apptesters.org.ipa",
+      "versions": [
+        {
+          "version": "12.30.0",
+          "date": "2026-10-06",
+          "localizedDescription": "@blatants | Mimo: Learn Coding/Programming  • Bundle ID: com.getmimo.mimo • Updated to: 12.30.0 • Minimum iOS: 18.0 • Patched • Modifier: Max Subscrip",
+          "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/05-10-2026/Mimo_12.30.0_Pro_@thisismanpreets_apptesters.org.ipa",
+          "size": 154863933,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@blatants | Mimo: Learn Coding/Programming  • Bundle ID: com.getmimo.mimo • Updated to: 12.30.0 • Minimum iOS: 18.0 • Patched • Modifier: Max Subscrip",
+      "tintColor": "000000",
+      "icon": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.getmimo.mimo.png",
+      "bundleID": "com.getmimo.mimo",
+      "fullDate": "20261006030035",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "YouTube",
+      "bundleIdentifier": "com.google.ios.youtube",
+      "developerName": "scholars lounge",
+      "version": "21.40.5",
+      "versionDate": "2026-10-05",
+      "size": 137298992,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@compiledipas | YTKACE v1.1.2 by @itzzace0  What's new: • Updated to YouTube 21.40.5 • Redesigned the download tab to look more like YouTube, with an\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/78278.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/78278-YTKACE_1.1.2_YouTube_21.40.5.ipa",
+      "versions": [
+        {
+          "version": "21.40.5",
+          "date": "2026-10-05",
+          "localizedDescription": "@compiledipas | YTKACE v1.1.2 by @itzzace0  What's new: • Updated to YouTube 21.40.5 • Redesigned the download tab to look more like YouTube, with an ",
+          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/78278-YTKACE_1.1.2_YouTube_21.40.5.ipa",
+          "size": 137298992,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@compiledipas | YTKACE v1.1.2 by @itzzace0  What's new: • Updated to YouTube 21.40.5 • Redesigned the download tab to look more like YouTube, with an ",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/78278.png",
+      "bundleID": "com.google.ios.youtube",
+      "fullDate": "20261005030133",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Nuvio",
+      "bundleIdentifier": "com.nuvio.media",
+      "developerName": "scholars lounge",
+      "version": "0.5.6",
+      "versionDate": "2026-10-04",
+      "size": 66690752,
+      "minOSVersion": "14.0",
+      "localizedDescription": "scholars lounge | Nuvio Version: 0.5.6 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/78050.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/78050-nuvio-0.5.6-full-release.ipa",
+      "versions": [
+        {
+          "version": "0.5.6",
+          "date": "2026-10-04",
+          "localizedDescription": "scholars lounge | Nuvio Version: 0.5.6 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
+          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/78050-nuvio-0.5.6-full-release.ipa",
+          "size": 66690752,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "scholars lounge | Nuvio Version: 0.5.6 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/78050.png",
+      "bundleID": "com.nuvio.media",
+      "fullDate": "20261004030203",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Subway Surf",
+      "bundleIdentifier": "com.kiloo.subwaysurfers",
+      "developerName": "@kamohacks",
+      "version": "3.69.2",
+      "versionDate": "2026-10-01",
+      "size": 263181832,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@kamohacks | Subway Surfers 🆕⬆️⬆️  🔩Hack Features🔩 ✅Free Store (not Free iAP) ✅Unlock Characters Outfit ✅Custom Jump Height ✅No Clip (To end level swi\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/kamohacks/16683.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/kamohacks/16683-Subway%20Surf%20-%20KamoHacks%20%5B3.69.2%5D.ipa",
+      "versions": [
+        {
+          "version": "3.69.2",
+          "date": "2026-10-01",
+          "localizedDescription": "@kamohacks | Subway Surfers 🆕⬆️⬆️  🔩Hack Features🔩 ✅Free Store (not Free iAP) ✅Unlock Characters Outfit ✅Custom Jump Height ✅No Clip (To end level swi",
+          "downloadURL": "https://fastsign.dev/tg-ipa/kamohacks/16683-Subway%20Surf%20-%20KamoHacks%20%5B3.69.2%5D.ipa",
+          "size": 263181832,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@kamohacks | Subway Surfers 🆕⬆️⬆️  🔩Hack Features🔩 ✅Free Store (not Free iAP) ✅Unlock Characters Outfit ✅Custom Jump Height ✅No Clip (To end level swi",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/kamohacks/16683.png",
+      "bundleID": "com.kiloo.subwaysurfers",
+      "fullDate": "20261001030045",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Infuse",
+      "bundleIdentifier": "com.firecore.infuse",
+      "developerName": "@ipavault",
+      "version": "8.5.6",
+      "versionDate": "2026-10-01",
+      "size": 97789883,
+      "minOSVersion": "14.0",
+      "localizedDescription": "Variant: Infuse Plus 2.6\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/ipavault/675.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/ipavault/675-Infuse%208.5.6%20%28Infuse%20Plus%202.6%29%20%5B@ipavault%5D.ipa",
+      "versions": [
+        {
+          "version": "8.5.6",
+          "date": "2026-10-01",
+          "localizedDescription": "Variant: Infuse Plus 2.6",
+          "downloadURL": "https://fastsign.dev/tg-ipa/ipavault/675-Infuse%208.5.6%20%28Infuse%20Plus%202.6%29%20%5B@ipavault%5D.ipa",
+          "size": 97789883,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "Variant: Infuse Plus 2.6",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/ipavault/675.png",
+      "bundleID": "com.firecore.infuse",
+      "fullDate": "20261001030045",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "MyFitnessPal",
+      "bundleIdentifier": "com.myfitnesspal.mfp",
+      "developerName": "AppTesters IPA Repo",
+      "version": "26.39.0",
+      "versionDate": "2026-09-30",
+      "size": 212633415,
+      "minOSVersion": "14.0",
+      "localizedDescription": "Injected with Subscription Unlocked\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.myfitnesspal.mfp.png",
+      "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/30-09-2026/MyFitnessPal_26.39.0_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
+      "versions": [
+        {
+          "version": "26.39.0",
+          "date": "2026-09-30",
+          "localizedDescription": "Injected with Subscription Unlocked",
+          "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/30-09-2026/MyFitnessPal_26.39.0_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
+          "size": 212633415,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "Injected with Subscription Unlocked",
+      "tintColor": "000000",
+      "icon": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.myfitnesspal.mfp.png",
+      "bundleID": "com.myfitnesspal.mfp",
+      "fullDate": "20260930030048",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Reddit",
+      "bundleIdentifier": "com.reddit.Reddit",
+      "developerName": "scholars lounge",
+      "version": "2026.38.0",
+      "versionDate": "2026-09-24",
+      "size": 143413071,
+      "minOSVersion": "14.0",
+      "localizedDescription": "scholars lounge | RedditDeluxe 2026.38.0  - Reddit 2026.38.0 - RedditFilter (MoeReddit) hold 3 fingers down to get the menu - redditColorComments - Ol\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/76034.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/76034-RedditDeluxes_2026.38.0_Jacks_Apps.ipa",
+      "versions": [
+        {
+          "version": "2026.38.0",
+          "date": "2026-09-24",
+          "localizedDescription": "scholars lounge | RedditDeluxe 2026.38.0  - Reddit 2026.38.0 - RedditFilter (MoeReddit) hold 3 fingers down to get the menu - redditColorComments - Ol",
+          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/76034-RedditDeluxes_2026.38.0_Jacks_Apps.ipa",
+          "size": 143413071,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "scholars lounge | RedditDeluxe 2026.38.0  - Reddit 2026.38.0 - RedditFilter (MoeReddit) hold 3 fingers down to get the menu - redditColorComments - Ol",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/76034.png",
+      "bundleID": "com.reddit.Reddit",
+      "fullDate": "20260924183518",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "WA Business",
+      "bundleIdentifier": "net.whatsapp.WhatsAppSMB",
+      "developerName": "@compiledipas",
+      "version": "26.37.73",
+      "versionDate": "2026-09-22",
+      "size": 166500469,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@compiledipas | WGoldPlus (WGold 2.9) #WhatsAppSMB v26.37.73   Included tweaks: WGold 2.9 (by @alibusut) WATranslator 2.1 (by @n9ipa) WAFonts v2.0.0 (\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/compiledipas/1605.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/compiledipas/1605-%E2%80%8EWA%20Business_26.37.73_WGoldPlus.ipa",
+      "versions": [
+        {
+          "version": "26.37.73",
+          "date": "2026-09-22",
+          "localizedDescription": "@compiledipas | WGoldPlus (WGold 2.9) #WhatsAppSMB v26.37.73   Included tweaks: WGold 2.9 (by @alibusut) WATranslator 2.1 (by @n9ipa) WAFonts v2.0.0 (",
+          "downloadURL": "https://fastsign.dev/tg-ipa/compiledipas/1605-%E2%80%8EWA%20Business_26.37.73_WGoldPlus.ipa",
+          "size": 166500469,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@compiledipas | WGoldPlus (WGold 2.9) #WhatsAppSMB v26.37.73   Included tweaks: WGold 2.9 (by @alibusut) WATranslator 2.1 (by @n9ipa) WAFonts v2.0.0 (",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/compiledipas/1605.png",
+      "bundleID": "net.whatsapp.WhatsAppSMB",
+      "fullDate": "20260922030132",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Planta",
+      "bundleIdentifier": "com.stromming.Plants",
+      "developerName": "@riftysIPAlibrary",
+      "version": "3.121.0",
+      "versionDate": "2026-09-22",
+      "size": 173335119,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@riftysIPAlibrary | Planta: Plant & Garden Care  Tweak: Subscription Unlocked  Version: 3.121.0  Patched ✓  @riftysIPAlibrary  Additional Information\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/riftysipalibrary/8011.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/riftysipalibrary/8011-Planta:%20Plant%20&%20Garden%20Care-v3.121.0-riftysipas.ipa",
+      "versions": [
+        {
+          "version": "3.121.0",
+          "date": "2026-09-22",
+          "localizedDescription": "@riftysIPAlibrary | Planta: Plant & Garden Care  Tweak: Subscription Unlocked  Version: 3.121.0  Patched ✓  @riftysIPAlibrary  Additional Information ",
+          "downloadURL": "https://fastsign.dev/tg-ipa/riftysipalibrary/8011-Planta:%20Plant%20&%20Garden%20Care-v3.121.0-riftysipas.ipa",
+          "size": 173335119,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@riftysIPAlibrary | Planta: Plant & Garden Care  Tweak: Subscription Unlocked  Version: 3.121.0  Patched ✓  @riftysIPAlibrary  Additional Information ",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/riftysipalibrary/8011.png",
+      "bundleID": "com.stromming.Plants",
+      "fullDate": "20260922030132",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Photomath",
+      "bundleIdentifier": "com.microblink.PhotoMath",
+      "developerName": "AppTesters IPA Repo",
+      "version": "8.47.0",
+      "versionDate": "2026-09-01",
+      "size": 19837223,
+      "minOSVersion": "14.0",
+      "localizedDescription": "Chức năng đã thêm: Subscription mở khoá  - IPA đã được kiểm tra và tổng hợp bởi TTJB Team\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.microblink.PhotoMath.png",
+      "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/31-08-2026/Photomath_8.47.0_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
+      "versions": [
+        {
+          "version": "8.47.0",
+          "date": "2026-09-01",
+          "localizedDescription": "Chức năng đã thêm: Subscription mở khoá  - IPA đã được kiểm tra và tổng hợp bởi TTJB Team",
+          "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/31-08-2026/Photomath_8.47.0_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
+          "size": 19837223,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "Chức năng đã thêm: Subscription mở khoá  - IPA đã được kiểm tra và tổng hợp bởi TTJB Team",
+      "tintColor": "000000",
+      "icon": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.microblink.PhotoMath.png",
+      "bundleID": "com.microblink.PhotoMath",
+      "fullDate": "20260901030043",
+      "type": 1,
+      "category": ""
+    }
+  ]
+}
