@@ -6,11 +6,7 @@
       "type": "shell",
       "command": "python3",
       "args": [
-        "-m",
-        "http.server",
-        "8000",
-        "--bind",
-        "127.0.0.1"
+        ".vscode/serve_editor.py"
       ],
       "isBackground": true,
       "problemMatcher": [],

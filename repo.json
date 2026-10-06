@@ -1,5 +1,5 @@
 {
-  "name": "repo.serloko.com",
+  "name": "serloko's repo",
   "identifier": "com.serloko.repo",
   "subtitle": "serloko's repo",
   "apps": [
@@ -380,5 +380,6 @@
       "type": 1,
       "category": ""
     }
-  ]
+  ],
+  "iconURL": "https://media.discordapp.net/attachments/1514328216704258082/1557078443949162506/serloko_logo.jpg?backend=b2&ex=6ac67dce&is=6ac52c4e&hm=99d838c4c7699f54ae47bdd9c67b8847ffcff6b3ae784e515b1bc6738ce0a68d&=&format=webp&width=640&height=640"
 }

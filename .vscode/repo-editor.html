@@ -240,9 +240,10 @@
       <aside class="side-column" aria-label="Construtor do repositório">
         <section class="panel side-panel">
           <div class="side-head"><h2>repo.serloko.com</h2><span class="count" id="selected-count">0 SELECIONADAS</span></div>
-          <div class="field"><label for="repo-name">Nome do repositório</label><input id="repo-name" type="text" value="repo.serloko.com" placeholder="Ex.: Apps favoritas"></div>
+          <div class="field"><label for="repo-name">Nome do repositório</label><input id="repo-name" type="text" value="serloko's repo" placeholder="Ex.: Apps favoritas"></div>
           <div class="field"><label for="repo-id">Identificador</label><input class="mono-input" id="repo-id" type="text" value="com.serloko.repo" placeholder="com.exemplo.repositorio"></div>
           <div class="field"><label for="repo-description">Descrição</label><textarea id="repo-description" placeholder="Uma breve descrição do catálogo…">Repositório pessoal de apps iOS.</textarea></div>
+          <div class="field"><label for="repo-icon-url">URL do ícone do repositório</label><input id="repo-icon-url" type="url" placeholder="https://exemplo.com/icone.png"></div>
           <div class="repo-file-tools">
             <label class="button small quiet file-label">Abrir meu repo.json<input id="repo-file-input" type="file" accept=".json,application/json" aria-label="Abrir o meu ficheiro repo.json"></label>
             <button class="button small quiet" id="reload-repo" type="button">Reler repo.json local</button>
@@ -341,6 +342,8 @@
         iconURL: app.iconURL,
         category: app.category
       };
+      if ("icon" in original) result.icon = app.iconURL;
+      if ("iconUrl" in original) result.iconUrl = app.iconURL;
       const versions = Array.isArray(original.versions) ? original.versions.map((version) => ({ ...version })) : [];
       const firstVersion = versions[0] || { ...(original.latestVersion || {}) };
       firstVersion.version = app.version || firstVersion.version || "1.0";
@@ -363,6 +366,7 @@
       $("#repo-name").value = data.name || $("#repo-name").value;
       $("#repo-id").value = data.identifier || $("#repo-id").value;
       $("#repo-description").value = data.subtitle || data.description || $("#repo-description").value;
+      $("#repo-icon-url").value = data.iconURL || data.iconUrl || data.icon || "";
       $("#output-panel").classList.remove("visible");
       renderRepository();
       setRepositoryStatus(`${state.repositoryApps.length} apps carregadas de ${label}. As apps existentes serão mantidas.`, true);
@@ -563,6 +567,17 @@
       }
       const apps = state.repositoryApps.map(serializeApp);
       const repo = { ...state.repositoryMeta, name, identifier, subtitle: $("#repo-description").value.trim(), apps };
+      const iconURL = $("#repo-icon-url").value.trim();
+      if (iconURL) repo.iconURL = iconURL;
+      else delete repo.iconURL;
+      if ("icon" in state.repositoryMeta) {
+        if (iconURL) repo.icon = iconURL;
+        else delete repo.icon;
+      }
+      if ("iconUrl" in state.repositoryMeta) {
+        if (iconURL) repo.iconUrl = iconURL;
+        else delete repo.iconUrl;
+      }
       state.output = JSON.stringify(repo, null, 2);
       $("#output-json").value = state.output;
       $("#output-panel").classList.add("visible");
