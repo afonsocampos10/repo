@@ -149,35 +149,6 @@
       "category": ""
     },
     {
-      "name": "Nuvio",
-      "bundleIdentifier": "com.nuvio.media",
-      "developerName": "scholars lounge",
-      "version": "0.5.6",
-      "versionDate": "2026-10-04",
-      "size": 66690752,
-      "minOSVersion": "14.0",
-      "localizedDescription": "scholars lounge | Nuvio Version: 0.5.6 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
-      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/78050.png",
-      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/78050-nuvio-0.5.6-full-release.ipa",
-      "versions": [
-        {
-          "version": "0.5.6",
-          "date": "2026-10-04",
-          "localizedDescription": "scholars lounge | Nuvio Version: 0.5.6 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
-          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/78050-nuvio-0.5.6-full-release.ipa",
-          "size": 66690752,
-          "minOSVersion": "14.0"
-        }
-      ],
-      "subtitle": "scholars lounge | Nuvio Version: 0.5.6 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
-      "tintColor": "000000",
-      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/78050.png",
-      "bundleID": "com.nuvio.media",
-      "fullDate": "20261004030203",
-      "type": 1,
-      "category": ""
-    },
-    {
       "name": "Subway Surf",
       "bundleIdentifier": "com.kiloo.subwaysurfers",
       "developerName": "@kamohacks",
@@ -377,6 +348,296 @@
       "icon": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.microblink.PhotoMath.png",
       "bundleID": "com.microblink.PhotoMath",
       "fullDate": "20260901030043",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Nuvio",
+      "bundleIdentifier": "com.nuvio.media",
+      "developerName": "scholars lounge",
+      "version": "0.5.8",
+      "versionDate": "2026-10-09",
+      "size": 67558904,
+      "minOSVersion": "14.0",
+      "localizedDescription": "scholars lounge | Nuvio Version: 0.5.8 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/79022.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/79022-nuvio-0.5.8-full-release.ipa",
+      "versions": [
+        {
+          "version": "0.5.8",
+          "date": "2026-10-09",
+          "localizedDescription": "scholars lounge | Nuvio Version: 0.5.8 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
+          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/79022-nuvio-0.5.8-full-release.ipa",
+          "size": 67558904,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "scholars lounge | Nuvio Version: 0.5.8 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/79022.png",
+      "bundleID": "com.nuvio.media",
+      "fullDate": "20261009030046",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Husk",
+      "bundleIdentifier": "com.husk.app",
+      "developerName": "scholars lounge",
+      "version": "1.0.1",
+      "versionDate": "2026-10-09",
+      "size": 55925239,
+      "minOSVersion": "14.0",
+      "localizedDescription": "scholars lounge | Husk Version: 1.0.1 Bundle ID: com.husk​.app App by Leviidev  Run Android on your iPhone. Natively or Emulated. Husk is an iOS app f\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/79008.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/79008-Husk.ipa",
+      "versions": [
+        {
+          "version": "1.0.1",
+          "date": "2026-10-09",
+          "localizedDescription": "scholars lounge | Husk Version: 1.0.1 Bundle ID: com.husk​.app App by Leviidev  Run Android on your iPhone. Natively or Emulated. Husk is an iOS app f",
+          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/79008-Husk.ipa",
+          "size": 55925239,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "scholars lounge | Husk Version: 1.0.1 Bundle ID: com.husk​.app App by Leviidev  Run Android on your iPhone. Natively or Emulated. Husk is an iOS app f",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/79008.png",
+      "bundleID": "com.husk.app",
+      "fullDate": "20261009030046",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "TwitchUnblock",
+      "bundleIdentifier": "com.mxfia19.TwitchUnblock",
+      "developerName": "@ipavault",
+      "version": "1.2.16",
+      "versionDate": "2026-10-09",
+      "size": 2248791,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@ipavault | TwitchUnblock 1.2.16  Updated to TwitchUnblock 1.2.16  TwitchUnblock is an open-source Twitch client that lets you watch VODs and live str\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/ipavault/814.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/ipavault/814-TwitchUnblock%201.2.16.ipa",
+      "versions": [
+        {
+          "version": "1.2.16",
+          "date": "2026-10-09",
+          "localizedDescription": "@ipavault | TwitchUnblock 1.2.16  Updated to TwitchUnblock 1.2.16  TwitchUnblock is an open-source Twitch client that lets you watch VODs and live str",
+          "downloadURL": "https://fastsign.dev/tg-ipa/ipavault/814-TwitchUnblock%201.2.16.ipa",
+          "size": 2248791,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@ipavault | TwitchUnblock 1.2.16  Updated to TwitchUnblock 1.2.16  TwitchUnblock is an open-source Twitch client that lets you watch VODs and live str",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/ipavault/814.png",
+      "bundleID": "com.mxfia19.TwitchUnblock",
+      "fullDate": "20261009030046",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Duolingo",
+      "bundleIdentifier": "com.duolingo.DuolingoMobile",
+      "developerName": "@blatants",
+      "version": "7.143.0",
+      "versionDate": "2026-10-09",
+      "size": 212356408,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@blatants | Duolingo: Learn Languages  • Bundle ID: com.duolingo.DuolingoMobile • Updated to: 7.143.0 • Minimum iOS: 17.0 • Patched • Modifier: Duolin\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/blatants/12713.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/blatants/12713-Duolingo_Learn_Languages_v7_143_0_Duolingo_MAX_Unlocked_blatant.ipa",
+      "versions": [
+        {
+          "version": "7.143.0",
+          "date": "2026-10-09",
+          "localizedDescription": "@blatants | Duolingo: Learn Languages  • Bundle ID: com.duolingo.DuolingoMobile • Updated to: 7.143.0 • Minimum iOS: 17.0 • Patched • Modifier: Duolin",
+          "downloadURL": "https://fastsign.dev/tg-ipa/blatants/12713-Duolingo_Learn_Languages_v7_143_0_Duolingo_MAX_Unlocked_blatant.ipa",
+          "size": 212356408,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@blatants | Duolingo: Learn Languages  • Bundle ID: com.duolingo.DuolingoMobile • Updated to: 7.143.0 • Minimum iOS: 17.0 • Patched • Modifier: Duolin",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/blatants/12713.png",
+      "bundleID": "com.duolingo.DuolingoMobile",
+      "fullDate": "20261009030046",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Calm",
+      "bundleIdentifier": "com.calm.calmapp",
+      "developerName": "@blatants",
+      "version": "7.3",
+      "versionDate": "2026-10-09",
+      "size": 120203538,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@blatants | Calm  • Bundle ID: com.calm.calmapp • Updated to: 7.3 • Minimum iOS: 18.0 • Patched • Modifier: Lifetime Unlocked • Tweaked by @blatants\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/blatants/12712.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/blatants/12712-Calm%20v7.3%20Lifetime%20Unlocked%20blatant%20Patched.ipa",
+      "versions": [
+        {
+          "version": "7.3",
+          "date": "2026-10-09",
+          "localizedDescription": "@blatants | Calm  • Bundle ID: com.calm.calmapp • Updated to: 7.3 • Minimum iOS: 18.0 • Patched • Modifier: Lifetime Unlocked • Tweaked by @blatants  ",
+          "downloadURL": "https://fastsign.dev/tg-ipa/blatants/12712-Calm%20v7.3%20Lifetime%20Unlocked%20blatant%20Patched.ipa",
+          "size": 120203538,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@blatants | Calm  • Bundle ID: com.calm.calmapp • Updated to: 7.3 • Minimum iOS: 18.0 • Patched • Modifier: Lifetime Unlocked • Tweaked by @blatants  ",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/blatants/12712.png",
+      "bundleID": "com.calm.calmapp",
+      "fullDate": "20261009030046",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Offline Games",
+      "bundleIdentifier": "com.JindoBlu.OfflineGamesIOS",
+      "developerName": "@riftysIPAlibrary",
+      "version": "3.15.4",
+      "versionDate": "2026-10-09",
+      "size": 112987163,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@riftysIPAlibrary | Offline Games - No Wifi Games  Tweak: Unlimited Tokens, No Ads  Version: 3.15.4  Patched ✓  @riftysIPAlibrary  Additional Informat\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/riftysipalibrary/8298.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/riftysipalibrary/8298-Offline%20Games%20-%20No%20Wifi%20Games-v3.15.4-riftysipas.ipa",
+      "versions": [
+        {
+          "version": "3.15.4",
+          "date": "2026-10-09",
+          "localizedDescription": "@riftysIPAlibrary | Offline Games - No Wifi Games  Tweak: Unlimited Tokens, No Ads  Version: 3.15.4  Patched ✓  @riftysIPAlibrary  Additional Informat",
+          "downloadURL": "https://fastsign.dev/tg-ipa/riftysipalibrary/8298-Offline%20Games%20-%20No%20Wifi%20Games-v3.15.4-riftysipas.ipa",
+          "size": 112987163,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@riftysIPAlibrary | Offline Games - No Wifi Games  Tweak: Unlimited Tokens, No Ads  Version: 3.15.4  Patched ✓  @riftysIPAlibrary  Additional Informat",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/riftysipalibrary/8298.png",
+      "bundleID": "com.JindoBlu.OfflineGamesIOS",
+      "fullDate": "20261009030046",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "StudyCards",
+      "bundleIdentifier": "com.cameronshemilt.StudyCards",
+      "developerName": "@riftysIPAlibrary",
+      "version": "3.3.1",
+      "versionDate": "2026-10-09",
+      "size": 73586589,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@riftysIPAlibrary | StudyCards  Tweak: Premium Unlocked  Version: 3.3.1  Patched ✓  @riftysIPAlibrary  Additional Information ℹ️  Min OS Version: 16.1\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/riftysipalibrary/8296.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/riftysipalibrary/8296-StudyCards-v3.3.1-riftysipas.ipa",
+      "versions": [
+        {
+          "version": "3.3.1",
+          "date": "2026-10-09",
+          "localizedDescription": "@riftysIPAlibrary | StudyCards  Tweak: Premium Unlocked  Version: 3.3.1  Patched ✓  @riftysIPAlibrary  Additional Information ℹ️  Min OS Version: 16.1",
+          "downloadURL": "https://fastsign.dev/tg-ipa/riftysipalibrary/8296-StudyCards-v3.3.1-riftysipas.ipa",
+          "size": 73586589,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@riftysIPAlibrary | StudyCards  Tweak: Premium Unlocked  Version: 3.3.1  Patched ✓  @riftysIPAlibrary  Additional Information ℹ️  Min OS Version: 16.1",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/riftysipalibrary/8296.png",
+      "bundleID": "com.cameronshemilt.StudyCards",
+      "fullDate": "20261009030046",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Bloons TD 6",
+      "bundleIdentifier": "com.ninjakiwi.bloonstd6",
+      "developerName": "@kamohacks",
+      "version": "57.0",
+      "versionDate": "2026-10-09",
+      "size": 101516009,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@kamohacks | Bloons TD 6 🆕⬆️⬆️  🔩Hack Features🔩 ✅ Paid On Appstore 6.99$ 🛍️ ✅Place towers anywhere ✅ Fast Fire rate  ✅ No Regen Bloons  ✅ Infinite Her\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/kamohacks/16733.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/kamohacks/16733-Bloons%20TD%206%20-%20KamoHacks%20%5B57.0%5D.ipa",
+      "versions": [
+        {
+          "version": "57.0",
+          "date": "2026-10-09",
+          "localizedDescription": "@kamohacks | Bloons TD 6 🆕⬆️⬆️  🔩Hack Features🔩 ✅ Paid On Appstore 6.99$ 🛍️ ✅Place towers anywhere ✅ Fast Fire rate  ✅ No Regen Bloons  ✅ Infinite Her",
+          "downloadURL": "https://fastsign.dev/tg-ipa/kamohacks/16733-Bloons%20TD%206%20-%20KamoHacks%20%5B57.0%5D.ipa",
+          "size": 101516009,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@kamohacks | Bloons TD 6 🆕⬆️⬆️  🔩Hack Features🔩 ✅ Paid On Appstore 6.99$ 🛍️ ✅Place towers anywhere ✅ Fast Fire rate  ✅ No Regen Bloons  ✅ Infinite Her",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/kamohacks/16733.png",
+      "bundleID": "com.ninjakiwi.bloonstd6",
+      "fullDate": "20261009030046",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "RepCount",
+      "bundleIdentifier": "com.simonpersson.repsapp",
+      "developerName": "@Sa1y0miii",
+      "version": "10.8.2",
+      "versionDate": "2026-10-09",
+      "size": 43301813,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@Sa1y0miii | RepCount - Gym Workout Tracker 🧸 Min.iOS: [18.0+] 🧀 App version: [10.8.2] !upd  🪼 App Store: https://apps.apple.com/app/id594982044 📮 Not\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/sa1y0miii/14040.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/sa1y0miii/14040-%E2%80%8E%20RepCount_v10.8.2_tg@Sa1y0miii.ipa",
+      "versions": [
+        {
+          "version": "10.8.2",
+          "date": "2026-10-09",
+          "localizedDescription": "@Sa1y0miii | RepCount - Gym Workout Tracker 🧸 Min.iOS: [18.0+] 🧀 App version: [10.8.2] !upd  🪼 App Store: https://apps.apple.com/app/id594982044 📮 Not",
+          "downloadURL": "https://fastsign.dev/tg-ipa/sa1y0miii/14040-%E2%80%8E%20RepCount_v10.8.2_tg@Sa1y0miii.ipa",
+          "size": 43301813,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@Sa1y0miii | RepCount - Gym Workout Tracker 🧸 Min.iOS: [18.0+] 🧀 App version: [10.8.2] !upd  🪼 App Store: https://apps.apple.com/app/id594982044 📮 Not",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/sa1y0miii/14040.png",
+      "bundleID": "com.simonpersson.repsapp",
+      "fullDate": "20261009030046",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Hevy",
+      "bundleIdentifier": "com.hevyapp.hevy",
+      "developerName": "AppTesters IPA Repo",
+      "version": "3.1.16",
+      "versionDate": "2026-10-03",
+      "size": 142569544,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@blatants | Hevy - Workout Tracker Gym Log  • Bundle ID: com.hevyapp.hevy • Updated to: 3.1.16 • Minimum iOS: 15.1 • Patched • Modifier: Subscription\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.hevyapp.hevy.png",
+      "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/02-10-2026/Hevy_3.1.16_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
+      "versions": [
+        {
+          "version": "3.1.16",
+          "date": "2026-10-03",
+          "localizedDescription": "@blatants | Hevy - Workout Tracker Gym Log  • Bundle ID: com.hevyapp.hevy • Updated to: 3.1.16 • Minimum iOS: 15.1 • Patched • Modifier: Subscription ",
+          "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/02-10-2026/Hevy_3.1.16_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
+          "size": 142569544,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "@blatants | Hevy - Workout Tracker Gym Log  • Bundle ID: com.hevyapp.hevy • Updated to: 3.1.16 • Minimum iOS: 15.1 • Patched • Modifier: Subscription ",
+      "tintColor": "000000",
+      "icon": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.hevyapp.hevy.png",
+      "bundleID": "com.hevyapp.hevy",
+      "fullDate": "20261003030048",
       "type": 1,
       "category": ""
     }
