@@ -327,6 +327,35 @@
       .editor { grid-template-columns: 1fr; }
       .brand-name span { display: none; }
     }
+    /* ---------- Guardar, rascunho e listas longas ---------- */
+    .repo-list { max-height: 340px; }
+    .more-row { grid-column: 1 / -1; display: flex; justify-content: center; padding: 6px 0 2px; }
+    .more-row .button { min-width: 220px; }
+    .more-row small { color: var(--muted); font: 500 11px var(--mono); }
+    .repo-search { margin-bottom: 12px; }
+    .repo-search .search-wrap { width: 100%; }
+    .selected-row button:disabled { opacity: .4; cursor: not-allowed; }
+    .selected-row button:disabled:hover { border-color: var(--line); background: transparent; color: var(--muted); }
+    .selected-row button[data-top-repo] { width: 30px; padding: 0; display: inline-grid; place-items: center; }
+    .selected-row button[data-remove-repo].confirm { width: auto; padding: 0 10px; border-color: var(--danger); background: var(--danger-soft); color: var(--danger); font-size: 12px; }
+    .draft-banner { display: grid; gap: 10px; margin-bottom: 14px; padding: 12px; border: 1px solid var(--accent-line); border-left-width: 3px; border-radius: var(--radius-sm); background: var(--accent-soft); font-size: 12px; line-height: 1.6; }
+    .draft-banner[hidden] { display: none; }
+    .draft-banner p { margin: 0; }
+    .draft-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .save-state { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .save-state.dirty { color: var(--text); }
+    .save-state.dirty::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: #e8b34a; }
+    .check-line { display: flex; align-items: flex-start; gap: 9px; color: var(--muted); font-size: 12px; line-height: 1.5; cursor: pointer; }
+    .check-line input { flex: none; width: 16px; height: 16px; margin: 1px 0 0; accent-color: var(--accent); cursor: pointer; }
+    .check-line:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+    .action-status { padding: 10px 12px; border: 1px solid var(--accent-line); border-left-width: 3px; border-radius: var(--radius-sm); background: var(--accent-soft); color: var(--text); font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; animation: flash .5s ease-out; }
+    .action-status[hidden] { display: none; }
+    .action-status.error { border-color: var(--danger); background: var(--danger-soft); }
+    @keyframes flash { from { box-shadow: 0 0 0 4px var(--accent-ring); } to { box-shadow: 0 0 0 0 transparent; } }
+    .output-status { color: var(--muted); font: 500 11px var(--mono); }
+    .output-status:empty { display: none; }
+    .output-status.error { color: var(--danger); }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -351,6 +380,8 @@
       <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
       <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
       <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></symbol>
+      <symbol id="i-top" viewBox="0 0 24 24"><path d="M12 19V7"/><path d="M6 12l6-6 6 6"/><path d="M5 3h14"/></symbol>
+      <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4"/><path d="M8 20v-6h8v6"/></symbol>
     </defs>
   </svg>
 
@@ -426,7 +457,7 @@
 
         <div id="library">
           <div class="library-head">
-            <div class="library-title"><h2>Biblioteca</h2><span class="count" id="library-count">0 APPS</span></div>
+            <div class="library-title"><h2>Biblioteca</h2><span class="count" id="library-count" role="status">0 APPS</span></div>
             <div class="library-tools">
               <label class="sr-only" for="search">Pesquisar por nome ou categoria</label>
               <div class="search-wrap">
@@ -437,7 +468,7 @@
               <button class="button small quiet" id="deselect-all" type="button">Limpar</button>
             </div>
           </div>
-          <div class="app-grid" id="app-grid" aria-live="polite"></div>
+          <div class="app-grid" id="app-grid"></div>
         </div>
       </section>
 
@@ -453,7 +484,21 @@
                   <label class="button small quiet file-label"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg>Abrir meu repo.json<input id="repo-file-input" type="file" accept=".json,application/json" aria-label="Abrir o meu ficheiro repo.json"></label>
                   <button class="button small quiet" id="reload-repo" type="button"><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg>Reler repo.json local</button>
                 </div>
+                <div class="draft-banner" id="draft-banner" role="status" hidden>
+                  <p id="draft-banner-text"></p>
+                  <div class="draft-actions">
+                    <button class="button small primary" id="draft-restore" type="button">Restaurar rascunho</button>
+                    <button class="button small quiet" id="draft-discard" type="button">Descartar</button>
+                  </div>
+                </div>
                 <p class="repo-state" id="repo-state" role="status" aria-live="polite">A procurar repo.json local…</p>
+                <div class="repo-search">
+                  <label class="sr-only" for="repo-search">Pesquisar nas apps do meu repo.json</label>
+                  <div class="search-wrap">
+                    <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+                    <input class="search" id="repo-search" type="search" placeholder="Pesquisar no meu repo.json…" autocomplete="off">
+                  </div>
+                </div>
                 <div class="selected-list repo-list" id="repo-list"></div>
                 <div class="editor repo-editor" id="repo-editor"></div>
               </div>
@@ -479,8 +524,12 @@
           </div>
 
           <div class="repo-actions">
+            <p class="save-state" id="save-state">Sem alterações por guardar.</p>
+            <label class="check-line" for="update-existing"><input type="checkbox" id="update-existing"><span>Atualizar apps que já existem (nova versão e link) e subi-las para o topo</span></label>
+            <div class="action-status" id="action-status" role="status" aria-live="polite" hidden></div>
             <button class="button" id="add-selected" type="button"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Adicionar selecionadas ao meu repo</button>
-            <button class="button primary" id="generate" type="button"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg>Gerar repo.json atualizado</button>
+            <button class="button primary" id="save-repo" type="button"><svg class="icon" aria-hidden="true"><use href="#i-save"/></svg>Guardar no repo.json</button>
+            <button class="button quiet" id="generate" type="button"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg>Gerar repo.json para descarregar</button>
           </div>
         </section>
       </aside>
@@ -490,6 +539,7 @@
       <div class="output-head">
         <h2>repo.json<small>Pronto a publicar</small></h2>
         <div class="output-tools">
+          <span class="output-status" id="output-status" role="status" aria-live="polite"></span>
           <button class="button small" id="copy-json" type="button" title="Copiar JSON"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>Copiar</button>
           <button class="button small primary" id="download-json" type="button" title="Descarregar repo.json"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Descarregar</button>
           <button class="button small quiet icon-button" id="close-output" type="button" aria-label="Fechar resultado" title="Fechar (Esc)"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
@@ -499,7 +549,7 @@
       <textarea class="output-area" id="output-json" readonly spellcheck="false"></textarea>
     </section>
 
-    <p class="footer-note">As alterações ficam neste navegador até descarregares o repo.json. Esta página não grava diretamente no GitHub.</p>
+    <p class="footer-note">«Guardar no repo.json» escreve no repo.json deste projeto, guardando antes a versão anterior em .vscode/repo.backup.json. Para publicar, faz commit e push. Esta página não envia nada para o GitHub.</p>
   </div>
 
   <nav class="mobile-nav" aria-label="Navegação rápida">
@@ -560,7 +610,19 @@
   </script>
   <script>
     // O formato de saída segue o padrão AltStore/SideStore: apps[] com versions[].
-    const state = { apps: [], activeId: null, repositoryApps: [], repositoryMeta: {}, repositoryActiveId: null, repositoryLoadedManually: false, output: "" };
+    const LIBRARY_PAGE = 48;          // apps desenhadas de cada vez na biblioteca
+    const REPO_PAGE = 50;             // apps desenhadas de cada vez na lista do repo.json
+    const SELECTED_LIST_LIMIT = 100;  // linhas na lista das selecionadas
+    const SELECT_ALL_CONFIRM = 100;   // pede confirmação em "Todas" acima deste número
+    const DRAFT_DELAY = 1000;         // ms sem alterações antes de guardar o rascunho
+
+    const state = {
+      apps: [], activeId: null, repositoryApps: [], repositoryMeta: {}, repositoryActiveId: null, repositoryLoadedManually: false, output: "",
+      libraryLimit: LIBRARY_PAGE, repoLimit: REPO_PAGE, repoQuery: "",
+      dirty: false, revision: 0, saving: false,
+      draftTimer: null, draftBusy: false, draftPending: false, pendingDraft: null, draftSavedAt: null, draftError: false,
+      pendingRemoveId: null, removeTimer: null
+    };
     const $ = (selector) => document.querySelector(selector);
     const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
     const safeImageUrl = (value) => {
@@ -615,6 +677,266 @@
       return (app.bundleIdentifier || app.name || "").trim().toLocaleLowerCase();
     }
 
+    // ---------- Mensagens junto aos botões ----------
+    function showActionStatus(message, isError = false) {
+      const box = $("#action-status");
+      box.textContent = message;
+      box.classList.toggle("error", isError);
+      box.style.animation = "none";
+      box.hidden = false;
+      void box.offsetWidth;
+      box.style.animation = "";
+    }
+
+    function showOutputStatus(message, isError = false) {
+      const box = $("#output-status");
+      box.textContent = message;
+      box.classList.toggle("error", isError);
+    }
+
+    // ---------- Pesquisa (texto em minúsculas guardado em cache em cada app) ----------
+    function haystackOf(app) {
+      if (typeof app.haystack !== "string") app.haystack = `${app.name} ${app.category}`.toLocaleLowerCase();
+      return app.haystack;
+    }
+    function filterApps(apps, query) {
+      return query ? apps.filter((app) => haystackOf(app).includes(query)) : apps;
+    }
+    function libraryQuery() {
+      return $("#search").value.trim().toLocaleLowerCase();
+    }
+
+    // ---------- Listas paginadas ("mostrar mais") ----------
+    function moreRowMarkup(kind, total, shown) {
+      if (shown >= total) return "";
+      const next = Math.min(kind === "library" ? LIBRARY_PAGE : REPO_PAGE, total - shown);
+      return `<div class="more-row"><button class="button small quiet" type="button" data-more-${kind}>Mostrar mais ${next} <small>(${shown} de ${total})</small></button></div>`;
+    }
+
+    function showMoreLibrary() {
+      const matches = filterApps(state.apps, libraryQuery());
+      const start = Math.min(state.libraryLimit, matches.length);
+      state.libraryLimit += LIBRARY_PAGE;
+      const grid = $("#app-grid");
+      const oldRow = grid.querySelector(".more-row");
+      if (oldRow) oldRow.remove();
+      const next = matches.slice(start, state.libraryLimit);
+      grid.insertAdjacentHTML("beforeend", next.map(cardMarkup).join("") + moreRowMarkup("library", matches.length, Math.min(state.libraryLimit, matches.length)));
+      const firstNew = grid.querySelectorAll(".app-card")[start];
+      const focusTarget = firstNew && firstNew.querySelector("input");
+      if (focusTarget) focusTarget.focus();
+    }
+
+    function repoRowMarkup(app) {
+      const name = escapeHtml(app.name);
+      const id = escapeHtml(app.id);
+      const isFirst = app === state.repositoryApps[0];
+      return `
+        <div class="selected-row ${app.id === state.repositoryActiveId ? "active" : ""}">
+          ${iconMarkup(app.iconURL, app.name)}<span class="selected-name" data-repo-name="${id}">${name}</span>
+          <button type="button" data-top-repo="${id}" aria-label="Mover ${name} para o topo" title="Mover para o topo" ${isFirst ? "disabled" : ""}><svg class="icon" aria-hidden="true"><use href="#i-top"/></svg></button>
+          <button type="button" data-edit-repo="${id}" aria-label="Editar ${name}">Editar</button>
+          <button type="button" data-remove-repo="${id}" data-name="${name}" aria-label="Remover ${name}" title="Remover">×</button>
+        </div>`;
+    }
+
+    // Remover uma app do repo pede um segundo clique em "Remover?" (4 s) antes de apagar.
+    function disarmRemove() {
+      clearTimeout(state.removeTimer);
+      const id = state.pendingRemoveId;
+      state.pendingRemoveId = null;
+      if (!id) return;
+      const button = document.querySelector(`[data-remove-repo="${id}"]`);
+      if (!button) return;
+      button.classList.remove("confirm");
+      button.textContent = "×";
+      button.setAttribute("aria-label", `Remover ${button.dataset.name || "app"}`);
+    }
+
+    function armRemove(button, id) {
+      disarmRemove();
+      state.pendingRemoveId = id;
+      button.classList.add("confirm");
+      button.textContent = "Remover?";
+      button.setAttribute("aria-label", `Confirmar a remoção de ${button.dataset.name || "app"}`);
+      state.removeTimer = setTimeout(disarmRemove, 4000);
+      setRepositoryStatus("Clica outra vez em «Remover?» para confirmar.");
+    }
+
+    // ---------- Atualizar uma app que já existe no repo ----------
+    // Junta a nova versão (e o link) à app existente, mantendo o resto dos dados e o histórico de versões.
+    function mergeIntoExisting(existing, incomingApp, index) {
+      const current = serializeApp(existing);
+      const fresh = serializeApp(incomingApp);
+      const freshVersion = { ...((fresh.versions && fresh.versions[0]) || {}) };
+      const versions = Array.isArray(current.versions) ? current.versions.map((version) => ({ ...version })) : [];
+      if (versions.length && versions[0].version === freshVersion.version) versions[0] = { ...versions[0], ...freshVersion };
+      else versions.unshift(freshVersion);
+      const merged = { ...current, versions };
+      if ("version" in merged) merged.version = freshVersion.version;
+      ["downloadURL", "downloadUrl"].forEach((key) => {
+        if (key in merged && freshVersion.downloadURL) merged[key] = freshVersion.downloadURL;
+      });
+      return { ...normalizeApp(merged, index), id: existing.id };
+    }
+
+    // ---------- Rascunho automático (IndexedDB, aguenta repositórios grandes) ----------
+    const draftStore = (() => {
+      const DB_NAME = "repo-editor";
+      const STORE = "drafts";
+      const KEY = "repo-draft";
+      let opened = null;
+      const open = () => {
+        if (!opened) {
+          opened = new Promise((resolve, reject) => {
+            if (!("indexedDB" in window)) { reject(new Error("IndexedDB indisponível")); return; }
+            const request = indexedDB.open(DB_NAME, 1);
+            request.onupgradeneeded = () => request.result.createObjectStore(STORE);
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject(request.error);
+          });
+        }
+        return opened;
+      };
+      const run = (mode, action) => open().then((db) => new Promise((resolve, reject) => {
+        const transaction = db.transaction(STORE, mode);
+        const request = action(transaction.objectStore(STORE));
+        transaction.oncomplete = () => resolve(request.result);
+        transaction.onerror = () => reject(transaction.error);
+        transaction.onabort = () => reject(transaction.error);
+      }));
+      return {
+        get: () => run("readonly", (store) => store.get(KEY)),
+        set: (value) => run("readwrite", (store) => store.put(value, KEY)),
+        clear: () => run("readwrite", (store) => store.delete(KEY))
+      };
+    })();
+
+    function formatTime(timestamp) {
+      return new Date(timestamp).toLocaleTimeString("pt-PT", { hour: "2-digit", minute: "2-digit" });
+    }
+
+    function updateSaveState() {
+      const box = $("#save-state");
+      if (!state.dirty) {
+        box.textContent = "Sem alterações por guardar.";
+        box.classList.remove("dirty");
+        return;
+      }
+      let detail = " A guardar o rascunho automático…";
+      if (state.draftPending) detail = " O rascunho automático está em pausa até decidires sobre o rascunho antigo.";
+      else if (state.draftError) detail = " Não foi possível guardar o rascunho automático neste navegador.";
+      else if (state.draftSavedAt) detail = ` Rascunho guardado automaticamente às ${formatTime(state.draftSavedAt)}.`;
+      box.textContent = `Alterações por guardar no repo.json.${detail}`;
+      box.classList.add("dirty");
+    }
+
+    function markDirty() {
+      state.dirty = true;
+      state.revision++;
+      updateSaveState();
+      if (state.draftPending) return;
+      clearTimeout(state.draftTimer);
+      state.draftTimer = setTimeout(persistDraft, DRAFT_DELAY);
+    }
+
+    async function persistDraft() {
+      state.draftTimer = null;
+      if (!state.dirty || state.draftPending) return;
+      if (state.draftBusy) { state.draftTimer = setTimeout(persistDraft, DRAFT_DELAY); return; }
+      state.draftBusy = true;
+      const revision = state.revision;
+      try {
+        await draftStore.set({
+          savedAt: Date.now(),
+          meta: { ...state.repositoryMeta, apps: [] },
+          fields: {
+            name: $("#repo-name").value,
+            identifier: $("#repo-id").value,
+            description: $("#repo-description").value,
+            iconURL: $("#repo-icon-url").value
+          },
+          apps: state.repositoryApps.map((app) => { const copy = { ...app }; delete copy.selected; return copy; })
+        });
+        if (state.dirty) state.draftSavedAt = Date.now();
+        state.draftError = false;
+      } catch (error) {
+        state.draftError = true;
+      } finally {
+        state.draftBusy = false;
+      }
+      if (!state.dirty) draftStore.clear().catch(() => { /* nada para limpar */ });
+      else if (state.revision !== revision && !state.draftTimer) state.draftTimer = setTimeout(persistDraft, DRAFT_DELAY);
+      updateSaveState();
+    }
+
+    function resetDirty() {
+      state.dirty = false;
+      clearTimeout(state.draftTimer);
+      state.draftTimer = null;
+      state.draftSavedAt = null;
+      state.draftError = false;
+      updateSaveState();
+    }
+
+    function markSaved() {
+      resetDirty();
+      state.pendingDraft = null;
+      state.draftPending = false;
+      $("#draft-banner").hidden = true;
+      draftStore.clear().catch(() => { /* nada para limpar */ });
+    }
+
+    function confirmDiscard() {
+      return !state.dirty || window.confirm("Tens alterações por guardar no repo.json. Se continuares, perdes esse trabalho. Continuar?");
+    }
+
+    async function checkStoredDraft() {
+      let draft = null;
+      try { draft = await draftStore.get(); } catch (error) { return; }
+      const valid = draft && Array.isArray(draft.apps)
+        && draft.apps.every((app) => app && typeof app.id === "string" && app.original && typeof app.original === "object");
+      if (!valid) return;
+      state.pendingDraft = draft;
+      state.draftPending = true;
+      $("#draft-banner-text").textContent = `Encontrei um rascunho não guardado de ${new Date(draft.savedAt).toLocaleString("pt-PT")} com ${draft.apps.length} apps. Enquanto não decidires, as novas alterações não são guardadas automaticamente.`;
+      $("#draft-banner").hidden = false;
+      updateSaveState();
+    }
+
+    function restoreStoredDraft() {
+      const draft = state.pendingDraft;
+      if (!draft) return;
+      state.repositoryMeta = draft.meta || {};
+      state.repositoryApps = draft.apps.map((app) => ({ ...app, selected: false }));
+      state.repositoryActiveId = null;
+      state.repositoryLoadedManually = true; // impede que a leitura automática do repo.json apague o rascunho
+      state.pendingDraft = null;
+      state.draftPending = false;
+      state.repoQuery = "";
+      state.repoLimit = REPO_PAGE;
+      $("#repo-search").value = "";
+      const fields = draft.fields || {};
+      if (typeof fields.name === "string") $("#repo-name").value = fields.name;
+      if (typeof fields.identifier === "string") $("#repo-id").value = fields.identifier;
+      if (typeof fields.description === "string") $("#repo-description").value = fields.description;
+      if (typeof fields.iconURL === "string") $("#repo-icon-url").value = fields.iconURL;
+      $("#draft-banner").hidden = true;
+      $("#output-panel").classList.remove("visible");
+      renderRepository();
+      setRepositoryStatus(`Rascunho restaurado com ${state.repositoryApps.length} apps. Ainda não está guardado no repo.json.`, true);
+      markDirty();
+    }
+
+    function discardStoredDraft() {
+      state.pendingDraft = null;
+      state.draftPending = false;
+      $("#draft-banner").hidden = true;
+      draftStore.clear().catch(() => { /* nada para limpar */ });
+      if (state.dirty) markDirty();
+      else updateSaveState();
+    }
+
     // Mantém campos específicos da app e versões antigas; só atualiza os metadados editáveis.
     function serializeApp(app) {
       const original = JSON.parse(JSON.stringify(app.original || {}));
@@ -637,6 +959,12 @@
       else versions[0] = firstVersion;
       if (!firstVersion.date && !original.latestVersion) firstVersion.date = new Date().toISOString().slice(0, 10);
       result.versions = versions;
+      // Repos antigos duplicam estes campos no topo da app; mantêm-se coerentes com a primeira versão.
+      if ("version" in original) result.version = firstVersion.version;
+      if (app.downloadURL) {
+        ["downloadURL", "downloadUrl"].forEach((key) => { if (key in original) result[key] = app.downloadURL; });
+      }
+      ["bundleID", "bundleId"].forEach((key) => { if (key in original) result[key] = app.bundleIdentifier; });
       return result;
     }
 
@@ -648,6 +976,12 @@
       state.repositoryApps = data.apps.map((app, index) => normalizeApp(app, index));
       state.repositoryActiveId = null;
       if (manual) state.repositoryLoadedManually = true;
+      const hadChanges = state.dirty;
+      resetDirty();
+      if (hadChanges && !state.draftPending) draftStore.clear().catch(() => { /* nada para limpar */ });
+      state.repoQuery = "";
+      state.repoLimit = REPO_PAGE;
+      $("#repo-search").value = "";
       $("#repo-name").value = data.name || $("#repo-name").value;
       $("#repo-id").value = data.identifier || $("#repo-id").value;
       $("#repo-description").value = data.subtitle || data.description || $("#repo-description").value;
@@ -657,15 +991,18 @@
       setRepositoryStatus(`${state.repositoryApps.length} apps carregadas de ${label}. As apps existentes serão mantidas.`, true);
     }
 
-    async function loadOwnRepositoryFromUrl() {
+    async function loadOwnRepositoryFromUrl(force = false) {
       setRepositoryStatus("A carregar repo.json local…");
       try {
         const response = await fetch("../repo.json", { cache: "no-store" });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
-        if (!state.repositoryLoadedManually) loadOwnRepository(data, "repo.json local");
+        if (force || !state.repositoryLoadedManually) {
+          state.repositoryLoadedManually = false;
+          loadOwnRepository(data, "repo.json local");
+        }
       } catch (error) {
-        if (!state.repositoryLoadedManually) setRepositoryStatus("Não foi possível carregar repo.json automaticamente. Abre o ficheiro local ou confirma que repo.json está na raiz do projeto.");
+        if (force || !state.repositoryLoadedManually) setRepositoryStatus("Não foi possível carregar repo.json automaticamente. Abre o ficheiro local ou confirma que repo.json está na raiz do projeto.");
       }
     }
 
@@ -675,6 +1012,7 @@
         if (!items.length) throw new Error("O repositório não contém apps para apresentar.");
         state.apps = items.map(normalizeApp);
         state.activeId = null;
+        state.libraryLimit = LIBRARY_PAGE;
         $("#search").value = "";
         $("#output-panel").classList.remove("visible");
         render();
@@ -745,15 +1083,19 @@
 
     function renderLibrary() {
       const grid = $("#app-grid");
-      const query = $("#search").value.trim().toLocaleLowerCase();
-      const visibleApps = state.apps.filter((app) => `${app.name} ${app.category}`.toLocaleLowerCase().includes(query));
+      const visibleApps = filterApps(state.apps, libraryQuery());
       $("#library-count").textContent = `${visibleApps.length} / ${state.apps.length} APPS`;
       if (!visibleApps.length) {
         const isFiltered = state.apps.length > 0;
         grid.innerHTML = `<div class="empty"><div><div class="empty-mark">${isFiltered ? "/?" : "{ }"}</div><strong>${isFiltered ? "Nenhuma app encontrada" : "À espera do teu catálogo"}</strong><p>${isFiltered ? "Experimenta outro nome ou categoria." : "Carrega um repositório por URL, escolhe um ficheiro JSON ou experimenta o catálogo de demonstração."}</p></div></div>`;
         return;
       }
-      grid.innerHTML = visibleApps.map((app, index) => `
+      const shown = visibleApps.slice(0, state.libraryLimit);
+      grid.innerHTML = shown.map(cardMarkup).join("") + moreRowMarkup("library", visibleApps.length, shown.length);
+    }
+
+    function cardMarkup(app, index) {
+      return `
         <article class="app-card ${app.selected ? "is-selected" : ""}" style="animation-delay:${Math.min(index * 24, 240)}ms">
           <div class="card-top">
             ${iconMarkup(app.iconURL, app.name)}
@@ -762,19 +1104,19 @@
           </div>
           <p class="card-description">${escapeHtml(app.description || "Sem descrição fornecida.")}</p>
           <div class="card-bottom"><span class="bundle" title="${escapeHtml(app.bundleIdentifier)}">${escapeHtml(app.bundleIdentifier || "Identificador não definido")}</span><span class="count">${app.downloadURL ? "IPA OK" : "SEM IPA"}</span></div>
-        </article>`).join("");
+        </article>`;
     }
 
     function renderSelected() {
       const selected = state.apps.filter((app) => app.selected);
       $("#selected-count").textContent = `${selected.length} SELECIONADAS`;
       $("#selection-summary").textContent = `${selected.length} / ${state.apps.length}`;
-      $("#selected-list").innerHTML = selected.length ? selected.map((app) => `
+      $("#selected-list").innerHTML = selected.length ? selected.slice(0, SELECTED_LIST_LIMIT).map((app) => `
         <div class="selected-row ${app.id === state.activeId ? "active" : ""}" data-row="${escapeHtml(app.id)}">
           ${iconMarkup(app.iconURL, app.name)}<span class="selected-name" data-selected-name="${escapeHtml(app.id)}">${escapeHtml(app.name)}</span>
           <button type="button" data-edit="${escapeHtml(app.id)}" aria-label="Editar ${escapeHtml(app.name)}" title="Editar">Editar</button>
           <button type="button" data-remove="${escapeHtml(app.id)}" aria-label="Remover ${escapeHtml(app.name)}" title="Remover">×</button>
-        </div>`).join("") : `<div class="selected-empty">Ainda não escolheste nenhuma app. Marca uma app na biblioteca para começar.</div>`;
+        </div>`).join("") + (selected.length > SELECTED_LIST_LIMIT ? `<div class="selected-empty">… e mais ${selected.length - SELECTED_LIST_LIMIT} selecionadas (lista abreviada).</div>` : "") : `<div class="selected-empty">Ainda não escolheste nenhuma app. Marca uma app na biblioteca para começar.</div>`;
 
       const active = selected.find((app) => app.id === state.activeId);
       const editor = $("#editor");
@@ -792,13 +1134,17 @@
 
     function renderRepository() {
       const apps = state.repositoryApps;
-      $("#repo-app-count").textContent = `${apps.length} APPS`;
-      $("#repo-list").innerHTML = apps.length ? apps.map((app) => `
-        <div class="selected-row ${app.id === state.repositoryActiveId ? "active" : ""}">
-          ${iconMarkup(app.iconURL, app.name)}<span class="selected-name" data-repo-name="${escapeHtml(app.id)}">${escapeHtml(app.name)}</span>
-          <button type="button" data-edit-repo="${escapeHtml(app.id)}" aria-label="Editar ${escapeHtml(app.name)}">Editar</button>
-          <button type="button" data-remove-repo="${escapeHtml(app.id)}" aria-label="Remover ${escapeHtml(app.name)}">×</button>
-        </div>`).join("") : `<div class="selected-empty">Ainda não há apps no destino. Abre o teu repo.json ou adiciona apps selecionadas do catálogo.</div>`;
+      const matches = filterApps(apps, state.repoQuery);
+      const shown = matches.slice(0, state.repoLimit);
+      const list = $("#repo-list");
+      const scrollTop = list.scrollTop;
+      clearTimeout(state.removeTimer);
+      state.pendingRemoveId = null;
+      $("#repo-app-count").textContent = state.repoQuery ? `${matches.length} / ${apps.length} APPS` : `${apps.length} APPS`;
+      if (!apps.length) list.innerHTML = `<div class="selected-empty">Ainda não há apps no destino. Abre o teu repo.json ou adiciona apps selecionadas do catálogo.</div>`;
+      else if (!matches.length) list.innerHTML = `<div class="selected-empty">Nenhuma app do repo.json corresponde à pesquisa.</div>`;
+      else list.innerHTML = shown.map(repoRowMarkup).join("") + moreRowMarkup("repo", matches.length, shown.length);
+      list.scrollTop = scrollTop;
       const active = apps.find((app) => app.id === state.repositoryActiveId);
       const editor = $("#repo-editor");
       if (!active) { editor.innerHTML = ""; return; }
@@ -827,46 +1173,70 @@
 
     function addSelectedApps(showMessage = true) {
       const selected = state.apps.filter((app) => app.selected);
-      if (!selected.length) return { added: 0, skipped: 0 };
+      if (!selected.length) {
+        if (showMessage) showActionStatus("Seleciona primeiro uma ou mais apps na biblioteca.", true);
+        return { added: 0, updated: 0, skipped: 0 };
+      }
       const incomplete = selected.find((app) => !app.bundleIdentifier.trim() || !/^https?:\/\/\S+$/i.test(app.downloadURL.trim()));
       if (incomplete) {
         const message = `A app "${incomplete.name}" precisa de bundle identifier e URL HTTP(S) válido para o .ipa.`;
-        if (showMessage) showStatus(message, true);
+        if (showMessage) showActionStatus(message, true);
         return { error: message };
       }
-      const existingKeys = new Set(state.repositoryApps.map(repositoryAppKey));
+      const updateExisting = $("#update-existing").checked;
+      const existingByKey = new Map(state.repositoryApps.map((app) => [repositoryAppKey(app), app]));
+      const batchKeys = new Set();
+      const incoming = [];
+      const replacedIds = new Set();
       let added = 0;
+      let updated = 0;
       let skipped = 0;
-      const newApps = [];
       selected.forEach((app) => {
         const key = repositoryAppKey(app);
-        if (existingKeys.has(key)) { skipped++; return; }
-        const raw = serializeApp(app);
-        newApps.push({ ...normalizeApp(raw, newApps.length), selected: false });
-        existingKeys.add(key);
-        added++;
+        if (batchKeys.has(key)) { skipped++; return; }
+        batchKeys.add(key);
+        const existing = existingByKey.get(key);
+        if (existing && !updateExisting) { skipped++; return; }
+        if (existing) {
+          replacedIds.add(existing.id);
+          incoming.push({ ...mergeIntoExisting(existing, app, incoming.length), selected: false });
+          updated++;
+        } else {
+          incoming.push({ ...normalizeApp(serializeApp(app), incoming.length), selected: false });
+          added++;
+        }
       });
-      // As apps novas ficam no topo do repositório, pela ordem em que foram selecionadas.
-      state.repositoryApps.unshift(...newApps);
+      // As apps novas e as atualizadas ficam no topo, pela ordem em que foram selecionadas.
+      const remaining = replacedIds.size ? state.repositoryApps.filter((app) => !replacedIds.has(app.id)) : state.repositoryApps;
+      state.repositoryApps = incoming.concat(remaining);
       selected.forEach((app) => { app.selected = false; });
       state.activeId = null;
+      if (added || updated) markDirty();
       render();
       $("#output-panel").classList.remove("visible");
-      if (showMessage) showStatus(`${added} app(s) adicionada(s) ao destino; ${skipped} duplicada(s) mantida(s) sem alterações.`);
-      return { added, skipped };
+      if (added || updated) $("#repo-list").scrollTop = 0;
+      if (showMessage) {
+        const parts = [];
+        if (added) parts.push(`${added} adicionada(s) ao topo`);
+        if (updated) parts.push(`${updated} atualizada(s) e movida(s) para o topo`);
+        if (skipped) parts.push(`${skipped} ignorada(s) por já existirem${updateExisting ? "" : " (ativa «Atualizar apps que já existem» para as atualizar)"}`);
+        showActionStatus(`${parts.join("; ")}.${added || updated ? " Usa «Guardar no repo.json» para gravar." : ""}`, !(added || updated));
+      }
+      return { added, updated, skipped };
     }
 
-    function makeRepository() {
+    // Valida e monta o repositório final; devolve { repo, text, count } ou { error }.
+    function buildRepository() {
       const name = $("#repo-name").value.trim();
       const identifier = $("#repo-id").value.trim();
-      if (!name || !identifier) return showStatus("Preenche o nome e o identificador do repositório.", true);
+      if (!name || !identifier) return { error: "Preenche o nome e o identificador do repositório." };
       const result = addSelectedApps(false);
-      if (result.error) return showStatus(result.error, true);
-      if (!state.repositoryApps.length) return showStatus("Abre o teu repo.json ou seleciona apps do catálogo para começar.", true);
+      if (result.error) return { error: result.error };
+      if (!state.repositoryApps.length) return { error: "Abre o teu repo.json ou seleciona apps do catálogo para começar." };
       const keys = new Set();
       for (const app of state.repositoryApps) {
         const key = repositoryAppKey(app);
-        if (key && keys.has(key)) return showStatus(`Há apps duplicadas com o identificador "${key}" no destino. Remove a duplicada antes de gerar.`, true);
+        if (key && keys.has(key)) return { error: `Há apps duplicadas com o identificador "${key}" no destino. Remove a duplicada antes de gerar.` };
         keys.add(key);
       }
       const apps = state.repositoryApps.map(serializeApp);
@@ -882,11 +1252,88 @@
         if (iconURL) repo.iconUrl = iconURL;
         else delete repo.iconUrl;
       }
-      state.output = JSON.stringify(repo, null, 2);
+      return { repo, text: JSON.stringify(repo, null, 2), count: apps.length };
+    }
+
+    function makeRepository() {
+      const built = buildRepository();
+      if (built.error) { showActionStatus(built.error, true); return; }
+      state.output = built.text;
       $("#output-json").value = state.output;
+      showOutputStatus("");
       $("#output-panel").classList.add("visible");
-      showStatus(`repo.json gerado com ${apps.length} apps. As apps já existentes e os metadados originais foram preservados.`);
+      showActionStatus(`repo.json gerado com ${built.count} apps. As apps já existentes e os metadados originais foram preservados.`);
       $("#output-panel").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    // Grava diretamente no repo.json do projeto através do servidor local.
+    async function saveRepository() {
+      if (state.saving) return;
+      const built = buildRepository();
+      if (built.error) { showActionStatus(built.error, true); return; }
+      const revision = state.revision;
+      const button = $("#save-repo");
+      state.saving = true;
+      button.disabled = true;
+      showActionStatus("A guardar no repo.json…");
+      try {
+        let response;
+        try {
+          response = await fetch("/__save", { method: "POST", headers: { "Content-Type": "application/json" }, body: built.text });
+        } catch (networkError) {
+          throw new Error("Não foi possível contactar o servidor local. Abre o editor pelo endereço da tarefa \"Executar editor local do repo\" (http://127.0.0.1).");
+        }
+        if (!response.ok) {
+          if (response.status === 404 || response.status === 501) {
+            throw new Error("O servidor local ainda não tem o endpoint de gravação. Pára e volta a executar a tarefa \"Executar editor local do repo\".");
+          }
+          let detail = `HTTP ${response.status}`;
+          try { detail = (await response.json()).error || detail; } catch (parseError) { /* resposta sem JSON */ }
+          throw new Error(detail);
+        }
+        state.output = built.text;
+        if (state.revision === revision) markSaved();
+        else updateSaveState();
+        $("#output-panel").classList.remove("visible");
+        setRepositoryStatus(`repo.json guardado com ${built.count} apps.`, true);
+        showActionStatus(`Guardado em repo.json com ${built.count} apps. A versão anterior ficou em .vscode/repo.backup.json. Para publicar, faz commit e push.`);
+      } catch (error) {
+        showActionStatus(`Não foi possível guardar: ${error.message}`, true);
+      } finally {
+        state.saving = false;
+        button.disabled = false;
+      }
+    }
+
+    function debounce(fn, delay) {
+      let timer = null;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+      };
+    }
+
+    function showMoreRepo() {
+      const before = state.repoLimit;
+      state.repoLimit += REPO_PAGE;
+      renderRepository();
+      const rows = $("#repo-list").querySelectorAll(".selected-row");
+      const target = rows[before] && rows[before].querySelector("button:not(:disabled)");
+      if (target) target.focus();
+    }
+
+    function moveRepoAppToTop(id) {
+      const index = state.repositoryApps.findIndex((app) => app.id === id);
+      if (index <= 0) return;
+      const [app] = state.repositoryApps.splice(index, 1);
+      state.repositoryApps.unshift(app);
+      markDirty();
+      $("#output-panel").classList.remove("visible");
+      renderRepository();
+      $("#repo-list").scrollTop = 0;
+      const focusTarget = document.querySelector(`[data-edit-repo="${id}"]`);
+      if (focusTarget) focusTarget.focus();
+      setRepositoryStatus(`«${app.name || "App"}» movida para o topo. Ainda não está guardado no repo.json.`, true);
     }
 
     $("#load-url").addEventListener("click", loadFromUrl);
@@ -902,16 +1349,31 @@
     $("#repo-file-input").addEventListener("change", async (event) => {
       const file = event.target.files?.[0];
       if (!file) return;
+      if (!confirmDiscard()) { event.target.value = ""; return; }
       try { loadOwnRepository(JSON.parse(await file.text()), file.name, true); }
       catch (error) { setRepositoryStatus(`Não foi possível abrir o repo.json: ${error.message}`); }
       event.target.value = "";
     });
-    $("#reload-repo").addEventListener("click", loadOwnRepositoryFromUrl);
+    $("#reload-repo").addEventListener("click", () => {
+      if (!confirmDiscard()) return;
+      loadOwnRepositoryFromUrl(true);
+    });
     $("#load-paste").addEventListener("click", () => {
       try { loadData(JSON.parse($("#paste-json").value), "JSON colado"); }
       catch (error) { showStatus(`JSON inválido. ${error.message}`, true); }
     });
-    $("#search").addEventListener("input", renderLibrary);
+    $("#search").addEventListener("input", debounce(() => {
+      state.libraryLimit = LIBRARY_PAGE;
+      renderLibrary();
+    }, 200));
+    $("#repo-search").addEventListener("input", debounce(() => {
+      state.repoQuery = $("#repo-search").value.trim().toLocaleLowerCase();
+      state.repoLimit = REPO_PAGE;
+      renderRepository();
+    }, 200));
+    $("#app-grid").addEventListener("click", (event) => {
+      if (event.target.closest("[data-more-library]")) showMoreLibrary();
+    });
     $("#app-grid").addEventListener("change", (event) => {
       const checkbox = event.target.closest("[data-select]");
       if (checkbox) setSelected(checkbox.dataset.select, checkbox.checked);
@@ -920,8 +1382,9 @@
       if (event.target.tagName === "IMG") event.target.remove();
     }, true);
     $("#select-all").addEventListener("click", () => {
-      const query = $("#search").value.trim().toLocaleLowerCase();
-      state.apps.filter((app) => `${app.name} ${app.category}`.toLocaleLowerCase().includes(query)).forEach((app) => { app.selected = true; });
+      const matches = filterApps(state.apps, libraryQuery());
+      if (matches.length > SELECT_ALL_CONFIRM && !window.confirm(`Vais selecionar ${matches.length} apps de uma vez. Continuar?`)) return;
+      matches.forEach((app) => { app.selected = true; });
       state.activeId = state.apps.find((app) => app.selected)?.id || null;
       render();
     });
@@ -933,22 +1396,32 @@
       if (removeButton) setSelected(removeButton.dataset.remove, false);
     });
     $("#repo-list").addEventListener("click", (event) => {
+      if (event.target.closest("[data-more-repo]")) { showMoreRepo(); return; }
+      const topButton = event.target.closest("[data-top-repo]");
+      if (topButton) { moveRepoAppToTop(topButton.dataset.topRepo); return; }
       const editButton = event.target.closest("[data-edit-repo]");
+      if (editButton) { state.repositoryActiveId = editButton.dataset.editRepo; renderRepository(); return; }
       const removeButton = event.target.closest("[data-remove-repo]");
-      if (editButton) { state.repositoryActiveId = editButton.dataset.editRepo; renderRepository(); }
-      if (removeButton) {
-        state.repositoryApps = state.repositoryApps.filter((app) => app.id !== removeButton.dataset.removeRepo);
-        if (state.repositoryActiveId === removeButton.dataset.removeRepo) state.repositoryActiveId = null;
-        renderRepository();
-        $("#output-panel").classList.remove("visible");
-        setRepositoryStatus("App removida do rascunho. Gera e descarrega repo.json para publicar a alteração.");
-      }
+      if (!removeButton) return;
+      const id = removeButton.dataset.removeRepo;
+      // Primeiro clique pede confirmação; o segundo, nos 4 segundos seguintes, remove.
+      if (state.pendingRemoveId !== id) { armRemove(removeButton, id); return; }
+      clearTimeout(state.removeTimer);
+      state.pendingRemoveId = null;
+      state.repositoryApps = state.repositoryApps.filter((app) => app.id !== id);
+      if (state.repositoryActiveId === id) state.repositoryActiveId = null;
+      markDirty();
+      renderRepository();
+      $("#output-panel").classList.remove("visible");
+      setRepositoryStatus("App removida do rascunho. Usa «Guardar no repo.json» para gravar a alteração.", true);
     });
     $("#repo-editor").addEventListener("input", (event) => {
       const field = event.target.dataset.repoField;
       const active = state.repositoryApps.find((app) => app.id === state.repositoryActiveId);
       if (!field || !active) return;
       active[field] = event.target.value;
+      delete active.haystack;
+      markDirty();
       if (field === "name") {
         const rowName = $(`[data-repo-name="${active.id}"]`);
         if (rowName) rowName.textContent = active.name || "App sem nome";
@@ -960,12 +1433,25 @@
       const active = state.apps.find((app) => app.id === state.activeId);
       if (!field || !active) return;
       active[field] = event.target.value;
-      renderLibrary();
+      delete active.haystack;
+      refreshLibrarySoon();
       const name = $(`[data-selected-name="${active.id}"]`);
       if (field === "name" && name) name.textContent = active.name || "App sem nome";
     });
+    const refreshLibrarySoon = debounce(renderLibrary, 250);
     $("#generate").addEventListener("click", makeRepository);
+    $("#save-repo").addEventListener("click", saveRepository);
     $("#add-selected").addEventListener("click", () => addSelectedApps());
+    $("#draft-restore").addEventListener("click", restoreStoredDraft);
+    $("#draft-discard").addEventListener("click", discardStoredDraft);
+    ["#repo-name", "#repo-id", "#repo-description", "#repo-icon-url"].forEach((selector) => {
+      $(selector).addEventListener("input", markDirty);
+    });
+    window.addEventListener("beforeunload", (event) => {
+      if (!state.dirty) return;
+      event.preventDefault();
+      event.returnValue = "";
+    });
     $("#copy-json").addEventListener("click", async () => {
       try { await navigator.clipboard.writeText(state.output); showStatus("JSON copiado para a área de transferência."); }
       catch { $("#output-json").select(); showStatus("Não foi possível aceder à área de transferência. O JSON ficou selecionado para copiares manualmente.", true); }
@@ -989,6 +1475,7 @@
 
     render();
     loadOwnRepositoryFromUrl();
+    checkStoredDraft();
   </script>
 </body>
 </html>

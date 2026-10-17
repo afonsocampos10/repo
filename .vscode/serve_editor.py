@@ -2,8 +2,11 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import ipaddress
 import json
+import os
+import shutil
 import socket
 import sys
+import threading
 import urllib.error
 import urllib.request
 from urllib.parse import parse_qs, urlsplit
@@ -14,6 +17,12 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 PROXY_PATH = "/__proxy"
 PROXY_TIMEOUT = 30  # segundos por operação de rede
 PROXY_MAX_BYTES = 100 * 1024 * 1024  # 100 MB
+
+SAVE_PATH = "/__save"
+SAVE_MAX_BYTES = 200 * 1024 * 1024  # 200 MB
+REPO_FILE = PROJECT_ROOT / "repo.json"
+BACKUP_FILE = PROJECT_ROOT / ".vscode" / "repo.backup.json"
+SAVE_LOCK = threading.Lock()
 
 
 class ProxyError(Exception):
@@ -90,6 +99,30 @@ def fetch_remote(url):
         raise ProxyError(502, f"Falha ao contactar o servidor remoto: {error}")
 
 
+def write_repo_file(payload):
+    """Grava repo.json de forma atómica, guardando antes uma cópia da versão anterior."""
+    if not payload.endswith(b"\n"):
+        payload += b"\n"
+    temp = REPO_FILE.with_name(REPO_FILE.name + ".tmp")
+    with SAVE_LOCK:
+        try:
+            if REPO_FILE.exists():
+                BACKUP_FILE.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(REPO_FILE, BACKUP_FILE)
+            with open(temp, "wb") as handle:
+                handle.write(payload)
+                handle.flush()
+                os.fsync(handle.fileno())
+            os.replace(temp, REPO_FILE)
+        except OSError as error:
+            try:
+                temp.unlink()
+            except OSError:
+                pass
+            raise ProxyError(500, f"Não foi possível gravar repo.json: {error}")
+    return len(payload)
+
+
 class LocalEditorHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(PROJECT_ROOT), **kwargs)
@@ -103,25 +136,38 @@ class LocalEditorHandler(SimpleHTTPRequestHandler):
             self.path = "/.vscode/repo-editor.html"
         super().do_GET()
 
+    def do_POST(self):
+        parts = urlsplit(self.path)
+        if parts.path != SAVE_PATH:
+            self.send_json(404, {"error": "Endpoint não encontrado."})
+            return
+        self.handle_save()
+
     def allowed_origins(self):
         port = self.server.server_address[1]
         return {f"127.0.0.1:{port}", f"localhost:{port}"}
 
+    def check_local_request(self, require_origin=False):
+        """Bloqueia outros sites (e DNS rebinding) de usarem este servidor a partir do browser."""
+        allowed = self.allowed_origins()
+        if self.headers.get("Host", "") not in allowed:
+            raise ProxyError(403, "Pedido recusado: Host não permitido.")
+        origin = self.headers.get("Origin")
+        if origin is None:
+            if require_origin:
+                raise ProxyError(403, "Pedido recusado: falta a origem do pedido.")
+        elif origin.replace("http://", "", 1) not in allowed:
+            raise ProxyError(403, "Pedido recusado: origem não permitida.")
+
     def handle_proxy(self, parts):
         try:
-            # Bloqueia outros sites (e DNS rebinding) de usarem este proxy a partir do browser.
-            allowed = self.allowed_origins()
-            if self.headers.get("Host", "") not in allowed:
-                raise ProxyError(403, "Pedido recusado: Host não permitido.")
-            origin = self.headers.get("Origin")
-            if origin is not None and origin.replace("http://", "", 1) not in allowed:
-                raise ProxyError(403, "Pedido recusado: origem não permitida.")
+            self.check_local_request()
             values = parse_qs(parts.query).get("url", [])
             if len(values) != 1 or not values[0].strip():
                 raise ProxyError(400, "Falta o parâmetro url.")
             body = fetch_remote(values[0].strip())
         except ProxyError as error:
-            self.send_json_error(error.status, error.message)
+            self.send_json(error.status, {"error": error.message})
             return
         self.send_response(200)
         self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -133,8 +179,36 @@ class LocalEditorHandler(SimpleHTTPRequestHandler):
         except (BrokenPipeError, ConnectionResetError):
             pass
 
-    def send_json_error(self, status, message):
-        body = json.dumps({"error": message}).encode("utf-8")
+    def handle_save(self):
+        try:
+            # A gravação exige que o pedido venha desta própria página (Host e Origin).
+            self.check_local_request(require_origin=True)
+            content_type = self.headers.get("Content-Type", "").split(";")[0].strip().lower()
+            if content_type != "application/json":
+                raise ProxyError(415, "O conteúdo tem de ser application/json.")
+            length = self.headers.get("Content-Length", "")
+            if not length.isdigit():
+                raise ProxyError(411, "Falta o tamanho do conteúdo.")
+            size = int(length)
+            if size == 0 or size > SAVE_MAX_BYTES:
+                raise ProxyError(413, "O conteúdo está vazio ou excede o limite de 200 MB.")
+            payload = self.rfile.read(size)
+            if len(payload) != size:
+                raise ProxyError(400, "O pedido chegou incompleto.")
+            try:
+                data = json.loads(payload.decode("utf-8"))
+            except (UnicodeDecodeError, ValueError, RecursionError):
+                raise ProxyError(400, "O conteúdo não é JSON válido.")
+            if not isinstance(data, dict) or not isinstance(data.get("apps"), list):
+                raise ProxyError(400, "O repo.json deve ser um objeto com a propriedade apps[].")
+            written = write_repo_file(payload)
+        except ProxyError as error:
+            self.send_json(error.status, {"error": error.message})
+            return
+        self.send_json(200, {"ok": True, "apps": len(data["apps"]), "bytes": written})
+
+    def send_json(self, status, payload):
+        body = json.dumps(payload).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))

@@ -4,6 +4,35 @@
   "subtitle": "serloko's repo",
   "apps": [
     {
+      "name": "Nuvio",
+      "bundleIdentifier": "com.nuvio.media",
+      "developerName": "scholars lounge",
+      "version": "0.6.1",
+      "versionDate": "2026-10-17",
+      "size": 68517984,
+      "minOSVersion": "14.0",
+      "localizedDescription": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/80262.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/80262-nuvio-0.6.1-full-release.ipa",
+      "versions": [
+        {
+          "version": "0.6.1",
+          "date": "2026-10-17",
+          "localizedDescription": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
+          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/80262-nuvio-0.6.1-full-release.ipa",
+          "size": 68517984,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/80262.png",
+      "bundleID": "com.nuvio.media",
+      "fullDate": "20261017030045",
+      "type": 1,
+      "category": ""
+    },
+    {
       "name": "VDIT",
       "bundleIdentifier": "me.imgbase.videoday",
       "developerName": "AppTesters IPA Repo",
@@ -608,35 +637,6 @@
       "tintColor": "000000",
       "icon": "https://fastsign.dev/tg-icon/blatants/12854.png",
       "bundleID": "com.readdle.Scanner",
-      "fullDate": "20261017030045",
-      "type": 1,
-      "category": ""
-    },
-    {
-      "name": "Nuvio",
-      "bundleIdentifier": "com.nuvio.media",
-      "developerName": "scholars lounge",
-      "version": "0.6.1",
-      "versionDate": "2026-10-17",
-      "size": 68517984,
-      "minOSVersion": "14.0",
-      "localizedDescription": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
-      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/80262.png",
-      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/80262-nuvio-0.6.1-full-release.ipa",
-      "versions": [
-        {
-          "version": "0.6.1",
-          "date": "2026-10-17",
-          "localizedDescription": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
-          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/80262-nuvio-0.6.1-full-release.ipa",
-          "size": 68517984,
-          "minOSVersion": "14.0"
-        }
-      ],
-      "subtitle": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
-      "tintColor": "000000",
-      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/80262.png",
-      "bundleID": "com.nuvio.media",
       "fullDate": "20261017030045",
       "type": 1,
       "category": ""
