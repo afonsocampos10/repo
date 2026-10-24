@@ -22,6 +22,19 @@ descarrega o JSON atualizado, substitui o ficheiro `repo.json` da raiz por
 esse ficheiro e publica as alterações normalmente. O editor não escreve
 diretamente no GitHub.
 
+### Adicionar um IPA que só tens no computador
+
+Abre **Adicionar IPA do computador**, escolhe o ficheiro e preenche o nome,
+versão, bundle identifier e restantes dados. O editor copia o IPA para a pasta
+`ipas/` na raiz do projeto e cria automaticamente um URL como
+`https://repo.serloko.com/ipas/nome-do-ipa.ipa`. Depois de guardares o `repo.json`,
+faz commit e push do JSON **e do ficheiro `.ipa`**. O URL só ficará disponível
+depois de o site publicar esse ficheiro.
+
+Se aparecer um erro de ligação ao enviar, pára a tarefa antiga no terminal com
+`Ctrl+C`, executa novamente **Executar editor local do repo** e abre
+<http://127.0.0.1:8000/>. Não abras `repo-editor.html` diretamente no navegador.
+
 Para mudar as imagens, cola um URL público de imagem em **URL do ícone do
 repositório** para o ícone do catálogo. Para uma app como o Spotify, clica em
 **Editar** na app e altera **URL do ícone**. Depois gera e descarrega o JSON

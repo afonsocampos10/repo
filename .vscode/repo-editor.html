@@ -513,6 +513,21 @@
             </details>
 
             <details class="side-section">
+              <summary><span class="sum-title">Adicionar IPA do computador</span><span class="count">LOCAL</span></summary>
+              <div class="section-body">
+                <p class="repo-state">O IPA será copiado para a raiz do projeto e ficará disponível em <strong>https://repo.serloko.com/</strong> depois do commit e publicação.</p>
+                <div class="field"><label for="ipa-file">Ficheiro IPA</label><input id="ipa-file" type="file" accept=".ipa,application/octet-stream"></div>
+                <div class="field"><label for="ipa-name">Nome da app</label><input id="ipa-name" type="text" placeholder="Nome da app"></div>
+                <div class="field"><label for="ipa-version">Versão</label><input id="ipa-version" type="text" placeholder="1.0.0"></div>
+                <div class="field"><label for="ipa-bundle">Bundle identifier</label><input id="ipa-bundle" class="mono-input" type="text" placeholder="com.exemplo.app"></div>
+                <div class="field"><label for="ipa-description">Descrição</label><textarea id="ipa-description" placeholder="Descrição da app…"></textarea></div>
+                <div class="field"><label for="ipa-icon">URL do ícone</label><input id="ipa-icon" type="url" placeholder="https://exemplo.com/icone.png"></div>
+                <div class="field"><label for="ipa-category">Categoria</label><input id="ipa-category" type="text" placeholder="Utilities"></div>
+                <button class="button" id="add-ipa" type="button"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg>Enviar IPA e adicionar ao repo</button>
+              </div>
+            </details>
+
+            <details class="side-section">
               <summary><span class="sum-title">Metadados do repositório</span></summary>
               <div class="section-body">
                 <div class="field"><label for="repo-name">Nome do repositório</label><input id="repo-name" type="text" value="serloko's repo" placeholder="Ex.: Apps favoritas"></div>
@@ -1334,6 +1349,61 @@
       setRepositoryStatus(`«${app.name || "App"}» movida para o topo. Ainda não está guardado no repo.json.`, true);
     }
 
+    async function uploadIpa() {
+      const expectedOrigin = "http://127.0.0.1:8000";
+      if (window.location.origin !== expectedOrigin && window.location.origin !== "http://localhost:8000") {
+        return showActionStatus(`Este editor foi aberto em ${window.location.origin}. Abre ${expectedOrigin}/ e tenta novamente.`, true);
+      }
+      const file = $("#ipa-file").files[0];
+      const name = $("#ipa-name").value.trim();
+      const version = $("#ipa-version").value.trim() || "1.0.0";
+      const bundleIdentifier = $("#ipa-bundle").value.trim();
+      if (!file) return showActionStatus("Escolhe primeiro um ficheiro IPA.", true);
+      if (!file.name.toLowerCase().endsWith(".ipa")) return showActionStatus("O ficheiro tem de ter a extensão .ipa.", true);
+      if (file.size === 0) return showActionStatus("O IPA está vazio.", true);
+      if (!name || !bundleIdentifier) return showActionStatus("Preenche o nome e o bundle identifier da app.", true);
+      const button = $("#add-ipa");
+      button.disabled = true;
+      showActionStatus(`A enviar ${file.name}…`);
+      try {
+        const uploaded = await new Promise((resolve, reject) => {
+          const request = new XMLHttpRequest();
+          request.open("POST", `/__upload?filename=${encodeURIComponent(file.name)}`);
+          request.setRequestHeader("Content-Type", "application/octet-stream");
+          request.onload = () => {
+            let data = {};
+            try { data = JSON.parse(request.responseText); } catch (parseError) { /* resposta sem JSON */ }
+            if (request.status >= 200 && request.status < 300) resolve(data);
+            else reject(new Error(data.error || `HTTP ${request.status}`));
+          };
+          request.onerror = () => reject(new Error("Não foi possível contactar o servidor local."));
+          request.send(file);
+        });
+        const downloadURL = `https://repo.serloko.com/ipas/${encodeURIComponent(uploaded.filename)}`;
+        const app = normalizeApp({
+          name,
+          bundleIdentifier,
+          localizedDescription: $("#ipa-description").value.trim(),
+          iconURL: $("#ipa-icon").value.trim(),
+          category: $("#ipa-category").value.trim(),
+          versions: [{ version, downloadURL, date: new Date().toISOString().slice(0, 10) }]
+        }, state.repositoryApps.length);
+        state.repositoryApps.unshift(app);
+        markDirty();
+        renderRepository();
+        $("#repo-list").scrollTop = 0;
+        showActionStatus(`IPA enviado e «${name}» adicionada ao topo. Usa «Guardar no repo.json» para gravar.`);
+        $("#ipa-file").value = "";
+      } catch (error) {
+        const detail = error instanceof TypeError
+          ? "Não foi possível contactar o servidor local. Fecha a tarefa antiga, executa novamente «Executar editor local do repo» e abre http://127.0.0.1:8000/ (não abras o HTML diretamente)."
+          : error.message;
+        showActionStatus(`Não foi possível enviar o IPA: ${detail}`, true);
+      } finally {
+        button.disabled = false;
+      }
+    }
+
     $("#load-url").addEventListener("click", loadFromUrl);
     $("#load-proxy").addEventListener("click", loadViaCorsProxy);
     $("#source-url").addEventListener("keydown", (event) => { if (event.key === "Enter") loadFromUrl(); });
@@ -1440,6 +1510,7 @@
     $("#generate").addEventListener("click", makeRepository);
     $("#save-repo").addEventListener("click", saveRepository);
     $("#add-selected").addEventListener("click", () => addSelectedApps());
+    $("#add-ipa").addEventListener("click", uploadIpa);
     $("#draft-restore").addEventListener("click", restoreStoredDraft);
     $("#draft-discard").addEventListener("click", discardStoredDraft);
     ["#repo-name", "#repo-id", "#repo-description", "#repo-icon-url"].forEach((selector) => {

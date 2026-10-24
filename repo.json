@@ -4,6 +4,21 @@
   "subtitle": "serloko's repo",
   "apps": [
     {
+      "name": "Chess",
+      "bundleIdentifier": "com.chess.iphone",
+      "localizedDescription": "Chess",
+      "iconURL": "https://apps.trystore.net/plus/com.chess.iphone/chess-assistant/4.10.22/icon.webp",
+      "category": "",
+      "versions": [
+        {
+          "version": "4.10.22",
+          "downloadURL": "https://repo.serloko.com/Chess_Assistant_4.10.22_yijvlhjo.ipa",
+          "date": "2026-10-24"
+        }
+      ],
+      "developerName": ""
+    },
+    {
       "name": "taurus",
       "bundleIdentifier": "com.spotify.client",
       "developerName": "samj.",

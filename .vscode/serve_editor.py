@@ -20,7 +20,9 @@ PROXY_MAX_BYTES = 100 * 1024 * 1024  # 100 MB
 
 SAVE_PATH = "/__save"
 SAVE_MAX_BYTES = 200 * 1024 * 1024  # 200 MB
+UPLOAD_PATH = "/__upload"
 REPO_FILE = PROJECT_ROOT / "repo.json"
+IPA_DIRECTORY = PROJECT_ROOT / "ipas"
 BACKUP_FILE = PROJECT_ROOT / ".vscode" / "repo.backup.json"
 SAVE_LOCK = threading.Lock()
 
@@ -138,6 +140,9 @@ class LocalEditorHandler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         parts = urlsplit(self.path)
+        if parts.path == UPLOAD_PATH:
+            self.handle_upload(parts)
+            return
         if parts.path != SAVE_PATH:
             self.send_json(404, {"error": "Endpoint não encontrado."})
             return
@@ -206,6 +211,54 @@ class LocalEditorHandler(SimpleHTTPRequestHandler):
             self.send_json(error.status, {"error": error.message})
             return
         self.send_json(200, {"ok": True, "apps": len(data["apps"]), "bytes": written})
+
+    def handle_upload(self, parts):
+        temporary = None
+        try:
+            self.check_local_request(require_origin=True)
+            values = parse_qs(parts.query).get("filename", [])
+            if len(values) != 1 or not values[0].strip():
+                raise ProxyError(400, "Falta o nome do ficheiro.")
+            filename = Path(values[0].strip()).name
+            if filename != values[0].strip() or not filename.lower().endswith(".ipa"):
+                raise ProxyError(400, "Escolhe um ficheiro com extensão .ipa.")
+            length = self.headers.get("Content-Length", "")
+            if not length.isdigit():
+                raise ProxyError(411, "Falta o tamanho do ficheiro.")
+            size = int(length)
+            if size == 0:
+                raise ProxyError(400, "O IPA está vazio.")
+            IPA_DIRECTORY.mkdir(parents=True, exist_ok=True)
+            target = IPA_DIRECTORY / filename
+            temporary = target.with_name(f".{target.name}.uploading")
+            with open(temporary, "wb") as handle:
+                remaining = size
+                while remaining:
+                    chunk = self.rfile.read(min(1024 * 1024, remaining))
+                    if not chunk:
+                        raise ProxyError(400, "O upload chegou incompleto.")
+                    handle.write(chunk)
+                    remaining -= len(chunk)
+                handle.flush()
+                os.fsync(handle.fileno())
+            os.replace(temporary, target)
+        except ProxyError as error:
+            if temporary:
+                try:
+                    temporary.unlink()
+                except OSError:
+                    pass
+            self.send_json(error.status, {"error": error.message})
+            return
+        except OSError as error:
+            if temporary:
+                try:
+                    temporary.unlink()
+                except OSError:
+                    pass
+            self.send_json(500, {"error": f"Não foi possível guardar o IPA: {error}"})
+            return
+        self.send_json(200, {"ok": True, "filename": filename, "bytes": size})
 
     def send_json(self, status, payload):
         body = json.dumps(payload).encode("utf-8")
