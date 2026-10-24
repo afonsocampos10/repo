@@ -5,6 +5,13 @@
       "label": "Executar editor local do repo",
       "type": "shell",
       "command": "python3",
+      "windows": {
+        "command": "py",
+        "args": [
+          "-3",
+          ".vscode/serve_editor.py"
+        ]
+      },
       "args": [
         ".vscode/serve_editor.py"
       ],

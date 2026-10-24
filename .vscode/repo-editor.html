@@ -525,7 +525,7 @@
 
           <div class="repo-actions">
             <p class="save-state" id="save-state">Sem alterações por guardar.</p>
-            <label class="check-line" for="update-existing"><input type="checkbox" id="update-existing"><span>Atualizar apps que já existem (nova versão e link) e subi-las para o topo</span></label>
+            <label class="check-line" for="update-existing"><input type="checkbox" id="update-existing"><span>Substituir apps que já existem pela nova versão e subi-las para o topo</span></label>
             <div class="action-status" id="action-status" role="status" aria-live="polite" hidden></div>
             <button class="button" id="add-selected" type="button"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Adicionar selecionadas ao meu repo</button>
             <button class="button primary" id="save-repo" type="button"><svg class="icon" aria-hidden="true"><use href="#i-save"/></svg>Guardar no repo.json</button>
@@ -1196,11 +1196,15 @@
         if (batchKeys.has(key)) { skipped++; return; }
         batchKeys.add(key);
         const existing = existingByKey.get(key);
-        if (existing && !updateExisting) { skipped++; return; }
         if (existing) {
-          replacedIds.add(existing.id);
-          incoming.push({ ...mergeIntoExisting(existing, app, incoming.length), selected: false });
-          updated++;
+          if (updateExisting) {
+            replacedIds.add(existing.id);
+            incoming.push({ ...mergeIntoExisting(existing, app, incoming.length), selected: false });
+            updated++;
+          } else {
+            incoming.push({ ...normalizeApp(serializeApp(app), incoming.length), selected: false });
+            added++;
+          }
         } else {
           incoming.push({ ...normalizeApp(serializeApp(app), incoming.length), selected: false });
           added++;
@@ -1219,8 +1223,8 @@
         const parts = [];
         if (added) parts.push(`${added} adicionada(s) ao topo`);
         if (updated) parts.push(`${updated} atualizada(s) e movida(s) para o topo`);
-        if (skipped) parts.push(`${skipped} ignorada(s) por já existirem${updateExisting ? "" : " (ativa «Atualizar apps que já existem» para as atualizar)"}`);
-        showActionStatus(`${parts.join("; ")}.${added || updated ? " Usa «Guardar no repo.json» para gravar." : ""}`, !(added || updated));
+        if (skipped) parts.push(`${skipped} ignorada(s) por estar repetida na seleção`);
+        showActionStatus(`${parts.join("; ")}.${added || updated ? " Usa «Guardar no repo.json» para gravar." : ""}`);
       }
       return { added, updated, skipped };
     }
@@ -1233,12 +1237,6 @@
       const result = addSelectedApps(false);
       if (result.error) return { error: result.error };
       if (!state.repositoryApps.length) return { error: "Abre o teu repo.json ou seleciona apps do catálogo para começar." };
-      const keys = new Set();
-      for (const app of state.repositoryApps) {
-        const key = repositoryAppKey(app);
-        if (key && keys.has(key)) return { error: `Há apps duplicadas com o identificador "${key}" no destino. Remove a duplicada antes de gerar.` };
-        keys.add(key);
-      }
       const apps = state.repositoryApps.map(serializeApp);
       const repo = { ...state.repositoryMeta, name, identifier, subtitle: $("#repo-description").value.trim(), apps };
       const iconURL = $("#repo-icon-url").value.trim();
