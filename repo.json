@@ -4,95 +4,163 @@
   "subtitle": "serloko's repo",
   "apps": [
     {
-      "name": "Chess",
-      "bundleIdentifier": "com.chess.iphone",
-      "localizedDescription": "Chess",
-      "iconURL": "https://apps.trystore.net/plus/com.chess.iphone/chess-assistant/4.10.22/icon.webp",
-      "category": "",
+      "name": "Transit",
+      "bundleIdentifier": "com.samvermette.Transit",
+      "developerName": "@Sa1y0miii",
+      "version": "6.3.7",
+      "versionDate": "2026-11-07",
+      "size": 123453953,
+      "minOSVersion": "16.0",
+      "localizedDescription": "@Sa1y0miii | Transit • Subway & Bus Times 🧸 Min.iOS: [16.0+] 🧀 App version: [6.3.7] !upd  🪼 App Store: https://apps.apple.com/app/id498151501 📮 Notes:\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/sa1y0miii/15685.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/sa1y0miii/15685-%E2%80%8ETransit%20%E2%80%A2%20Subway%E2%80%A6_v6.3.7_tg@Sa1y0miii.ipa",
       "versions": [
         {
-          "version": "4.10.22",
-          "downloadURL": "https://github.com/afonsocampos10/repo/releases/download/ipa-chess-assistant-4.10.22/Chess_Assistant_4.10.22_yijvlhjo.ipa",
-          "date": "2026-10-24"
+          "version": "6.3.7",
+          "date": "2026-11-07",
+          "localizedDescription": "@Sa1y0miii | Transit • Subway & Bus Times 🧸 Min.iOS: [16.0+] 🧀 App version: [6.3.7] !upd  🪼 App Store: https://apps.apple.com/app/id498151501 📮 Notes:",
+          "downloadURL": "https://fastsign.dev/tg-ipa/sa1y0miii/15685-%E2%80%8ETransit%20%E2%80%A2%20Subway%E2%80%A6_v6.3.7_tg@Sa1y0miii.ipa",
+          "size": 123453953,
+          "minOSVersion": "16.0"
         }
       ],
-      "developerName": ""
-    },
-    {
-      "name": "taurus",
-      "bundleIdentifier": "com.spotify.client",
-      "developerName": "samj.",
-      "subtitle": "taurus: the free, open-sourced alternative to chroma.pw with built-in spotify premium",
-      "localizedDescription": "Open-Sourced fork of chroma.pw with built-in Spotify Premium. The Redesigned UI requires iOS 26; the legacy UI supports iOS 16.1 and later.",
-      "iconURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/960px-Spotify_App_Logo.svg.png",
-      "tintColor": "0A4B00",
-      "versions": [
-        {
-          "version": "0.60.4",
-          "date": "2026-10-24T10:38:00Z",
-          "downloadURL": "https://www.4sync.com/web/directDownload/p_xpTDyD/MGNmJs0J.49ed2143c5a5aa59e2ae5d47302276ca",
-          "size": 132877139,
-          "minOSVersion": "16.1"
-        }
-      ],
-      "appPermissions": {},
+      "subtitle": "Subscription unlocked",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/sa1y0miii/15685.png",
+      "bundleID": "com.samvermette.Transit",
+      "fullDate": "20261107040050",
+      "type": 1,
       "category": ""
     },
     {
-      "name": "Nuvio",
-      "bundleIdentifier": "com.nuvio.media",
-      "developerName": "scholars lounge",
-      "version": "0.6.1",
+      "name": "Televise",
+      "bundleIdentifier": "me.mumtaz.numan.televiseapp",
+      "developerName": "@Sa1y0miii",
+      "version": "1.9.3",
       "versionDate": "2026-10-17",
-      "size": 68517984,
+      "size": 27804256,
       "minOSVersion": "14.0",
-      "localizedDescription": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
-      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/80262.png",
-      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/80262-nuvio-0.6.1-full-release.ipa",
+      "localizedDescription": "@Sa1y0miii | Televise: TV & Movie Tracker 🧸 Min.iOS: [17.0+] 🧀 App version: [1.9.2] !upd  🪼 App Store: https://apps.apple.com/app/id6765939187 📮 Notes\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/sa1y0miii/14397.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/sa1y0miii/15712-%E2%80%8E%20Televise_v1.9.3_tg@Sa1y0miii.ipa",
       "versions": [
         {
-          "version": "0.6.1",
+          "version": "1.9.3",
+          "date": "2026-11-07",
+          "localizedDescription": "@Sa1y0miii | Televise: TV & Movie Tracker 🧸 Min.iOS: [17.0+] 🧀 App version: [1.9.3] !upd  🪼 App Store: https://apps.apple.com/app/id6765939187 📮 Notes",
+          "downloadURL": "https://fastsign.dev/tg-ipa/sa1y0miii/15712-%E2%80%8E%20Televise_v1.9.3_tg@Sa1y0miii.ipa",
+          "size": 32434104,
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.9.2",
           "date": "2026-10-17",
-          "localizedDescription": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
-          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/80262-nuvio-0.6.1-full-release.ipa",
-          "size": 68517984,
+          "localizedDescription": "@Sa1y0miii | Televise: TV & Movie Tracker 🧸 Min.iOS: [17.0+] 🧀 App version: [1.9.2] !upd  🪼 App Store: https://apps.apple.com/app/id6765939187 📮 Notes",
+          "downloadURL": "https://fastsign.dev/tg-ipa/sa1y0miii/14397-%E2%80%8E%20Televise_v1.9.2_tg@Sa1y0miii.ipa",
+          "size": 27804256,
           "minOSVersion": "14.0"
         }
       ],
-      "subtitle": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
+      "subtitle": "@Sa1y0miii | Televise: TV & Movie Tracker 🧸 Min.iOS: [17.0+] 🧀 App version: [1.9.2] !upd  🪼 App Store: https://apps.apple.com/app/id6765939187 📮 Notes",
       "tintColor": "000000",
-      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/80262.png",
-      "bundleID": "com.nuvio.media",
+      "icon": "https://fastsign.dev/tg-icon/sa1y0miii/14397.png",
+      "bundleID": "me.mumtaz.numan.televiseapp",
       "fullDate": "20261017030045",
       "type": 1,
       "category": ""
     },
     {
-      "name": "Spotify",
-      "bundleIdentifier": "com.spotify.client",
-      "developerName": "scholars lounge",
-      "version": "9.1.84",
-      "versionDate": "2026-10-06",
-      "size": 146364662,
-      "minOSVersion": "14.0",
-      "localizedDescription": "scholars lounge | EeveeSpotifyReincarnated Spotify version: 9.1.84 EeveeSpotifyReincarnated version: 7.0.0 App by SideloadLabs Compiled by @z0_0_1  Th\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
-      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/78438.png",
-      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/78438-EeveeSpotify-7.0.0-9.1.84.ipa",
+      "name": "iLovePDF",
+      "bundleIdentifier": "com.ilovepdf.www",
+      "developerName": "AppTesters IPA Repo",
+      "version": "4.2.3",
+      "versionDate": "2026-11-07",
+      "size": 157104410,
+      "minOSVersion": "18.0",
+      "localizedDescription": "@blatants | iLovePDF - PDF Editor & Scan  • Bundle ID: com.ilovepdf.www • Updated to: 4.2.3 • Minimum iOS: 18.0 • Patched • Modifier: Premium Unlocked\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.ilovepdf.www.png",
+      "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/07-11-2026/iLovePDF_4.2.3_Premium_@thisismanpreets_apptesters.org.ipa",
       "versions": [
         {
-          "version": "9.1.84",
-          "date": "2026-10-06",
-          "localizedDescription": "scholars lounge | EeveeSpotifyReincarnated Spotify version: 9.1.84 EeveeSpotifyReincarnated version: 7.0.0 App by SideloadLabs Compiled by @z0_0_1  Th",
-          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/78438-EeveeSpotify-7.0.0-9.1.84.ipa",
-          "size": 146364662,
+          "version": "4.2.3",
+          "date": "2026-11-07",
+          "localizedDescription": "@blatants | iLovePDF - PDF Editor & Scan  • Bundle ID: com.ilovepdf.www • Updated to: 4.2.3 • Minimum iOS: 18.0 • Patched • Modifier: Premium Unlocked",
+          "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/07-11-2026/iLovePDF_4.2.3_Premium_@thisismanpreets_apptesters.org.ipa",
+          "size": 157104410,
+          "minOSVersion": "18.0"
+        }
+      ],
+      "subtitle": "Premium unlocked. Login to activate",
+      "tintColor": "000000",
+      "icon": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.ilovepdf.www.png",
+      "bundleID": "com.ilovepdf.www",
+      "fullDate": "20261107040050",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Hevy",
+      "bundleIdentifier": "com.hevyapp.hevy",
+      "developerName": "AppTesters IPA Repo",
+      "version": "3.2.5",
+      "versionDate": "2026-10-03",
+      "size": 142569544,
+      "minOSVersion": "14.0",
+      "localizedDescription": "@blatants | Hevy - Workout Tracker Gym Log  • Bundle ID: com.hevyapp.hevy • Updated to: 3.1.16 • Minimum iOS: 15.1 • Patched • Modifier: Subscription\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.hevyapp.hevy.png",
+      "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/07-11-2026/Hevy_3.2.5_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
+      "versions": [
+        {
+          "version": "3.2.5",
+          "date": "2026-11-07",
+          "localizedDescription": "@blatants | Hevy - Workout Tracker Gym Log  • Bundle ID: com.hevyapp.hevy • Updated to: 3.2.5 • Minimum iOS: 15.1 • Patched • Modifier: Subscription U",
+          "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/07-11-2026/Hevy_3.2.5_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
+          "size": 146854606,
+          "minOSVersion": "15.1"
+        },
+        {
+          "version": "3.1.16",
+          "date": "2026-10-03",
+          "localizedDescription": "@blatants | Hevy - Workout Tracker Gym Log  • Bundle ID: com.hevyapp.hevy • Updated to: 3.1.16 • Minimum iOS: 15.1 • Patched • Modifier: Subscription ",
+          "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/02-10-2026/Hevy_3.1.16_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
+          "size": 142569544,
           "minOSVersion": "14.0"
         }
       ],
-      "subtitle": "scholars lounge | EeveeSpotifyReincarnated Spotify version: 9.1.84 EeveeSpotifyReincarnated version: 7.0.0 App by SideloadLabs Compiled by @z0_0_1  Th",
+      "subtitle": "@blatants | Hevy - Workout Tracker Gym Log  • Bundle ID: com.hevyapp.hevy • Updated to: 3.1.16 • Minimum iOS: 15.1 • Patched • Modifier: Subscription ",
       "tintColor": "000000",
-      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/78438.png",
-      "bundleID": "com.spotify.client",
-      "fullDate": "20261006030035",
+      "icon": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.hevyapp.hevy.png",
+      "bundleID": "com.hevyapp.hevy",
+      "fullDate": "20261003030048",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "YouTube",
+      "bundleIdentifier": "com.google.ios.youtube.ytkace.1.1.5",
+      "developerName": "YouTube",
+      "version": "21.44.4",
+      "versionDate": "2026-11-04",
+      "size": 139496330,
+      "minOSVersion": "17.0",
+      "localizedDescription": "Tweaks: YTKACE\n\nThis is a modded version of YouTube. ",
+      "iconURL": "https://static.vecteezy.com/system/resources/previews/023/986/704/non_2x/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png",
+      "downloadURL": "https://repo.ballermc.com/tubevault/YTKACE_1.1.5_YouTube_21.44.4.ipa",
+      "versions": [
+        {
+          "version": "21.44.4",
+          "date": "2026-11-04",
+          "localizedDescription": "Tweaks: YTKACE\n\nThis is a modded version of YouTube. Source Code: https://github.com/itzzace/YTKACE",
+          "downloadURL": "https://repo.ballermc.com/tubevault/YTKACE_1.1.5_YouTube_21.44.4.ipa",
+          "size": 139496330,
+          "minOSVersion": "17.0"
+        }
+      ],
+      "subtitle": "Best pick. Tweaks: YTKACE",
+      "tintColor": "000000",
+      "icon": "https://static.vecteezy.com/system/resources/previews/023/986/704/non_2x/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png",
+      "bundleID": "com.google.ios.youtube.ytkace.1.1.5",
+      "fullDate": "20261104040047",
       "type": 1,
       "category": ""
     },
@@ -100,14 +168,22 @@
       "name": "Instagram",
       "bundleIdentifier": "com.burbn.instagram",
       "developerName": "@ipavault",
-      "version": "450.0.0",
+      "version": "454.1.0",
       "versionDate": "2026-10-06",
       "size": 351072589,
       "minOSVersion": "14.0",
       "localizedDescription": "Variant: RyukGram 1.4.5\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
       "iconURL": "https://fastsign.dev/tg-icon/ipavault/756.png",
-      "downloadURL": "https://fastsign.dev/tg-ipa/ipavault/756-RyukGram%201.4.5%20%28IG%20450.0.0%29%20%5B@ipavault%5D.ipa",
+      "downloadURL": "https://fastsign.dev/tg-ipa/ipavault/1197-RyukGram%201.5.1%20%28IG%20454.1.0%29%20%5B@ipavault%5D.ipa",
       "versions": [
+        {
+          "version": "454.1.0",
+          "date": "2026-11-05",
+          "localizedDescription": "Tweaks: RyukGram\n\n@ipavault | Builds of Instagram 454.1.0  Builds: ▪RyukGram 1.5.1 ▪RyukGram 1.5.1 (No Plugins) ⚠️ Use RyukGram 1.5.1 build if you use Feather and a Pai",
+          "downloadURL": "https://fastsign.dev/tg-ipa/ipavault/1197-RyukGram%201.5.1%20%28IG%20454.1.0%29%20%5B@ipavault%5D.ipa",
+          "size": 380815593,
+          "minOSVersion": "15.0"
+        },
         {
           "version": "450.0.0",
           "date": "2026-10-06",
@@ -129,14 +205,22 @@
       "name": "Moovit",
       "bundleIdentifier": "com.tranzmate.tranzmate1",
       "developerName": "AppTesters IPA Repo",
-      "version": "5.202.0",
+      "version": "5.202.3",
       "versionDate": "2026-10-06",
       "size": 146338894,
       "minOSVersion": "14.0",
       "localizedDescription": "@blatants | Moovit: Bus & Transit Tracker  • Bundle ID: com.tranzmate.tranzmate1 • Updated to: 5.202.0 • Minimum iOS: 15.0 • Patched • Modifier: Moovi\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
       "iconURL": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.tranzmate.tranzmate1.png",
-      "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/05-10-2026/Moovit_5.202.0_Premium_@thisismanpreets_apptesters.org.ipa",
+      "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/02-11-2026/Moovit_5.202.3_Premium_@thisismanpreets_apptesters.org.ipa",
       "versions": [
+        {
+          "version": "5.202.3",
+          "date": "2026-11-03",
+          "localizedDescription": "@blatants | Moovit: Bus & Transit Tracker  • Bundle ID: com.tranzmate.tranzmate1 • Updated to: 5.202.3 • Minimum iOS: 15.0 • Patched • Modifier: Moovi",
+          "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/02-11-2026/Moovit_5.202.3_Premium_@thisismanpreets_apptesters.org.ipa",
+          "size": 151085458,
+          "minOSVersion": "15.0"
+        },
         {
           "version": "5.202.0",
           "date": "2026-10-06",
@@ -153,6 +237,87 @@
       "fullDate": "20261006030035",
       "type": 1,
       "category": ""
+    },
+    {
+      "name": "Nuvio",
+      "bundleIdentifier": "com.nuvio.media",
+      "developerName": "scholars lounge",
+      "version": "0.6.9",
+      "versionDate": "2026-10-17",
+      "size": 68517984,
+      "minOSVersion": "14.0",
+      "localizedDescription": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://fastsign.dev/tg-icon/scholars-lounge/80262.png",
+      "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/84315-nuvio-0.6.9-full-release.ipa",
+      "versions": [
+        {
+          "version": "0.6.9",
+          "date": "2026-11-07",
+          "localizedDescription": "scholars lounge | Nuvio Version: 0.6.9 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
+          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/84315-nuvio-0.6.9-full-release.ipa",
+          "size": 69322992,
+          "minOSVersion": "16.1"
+        },
+        {
+          "version": "0.6.1",
+          "date": "2026-10-17",
+          "localizedDescription": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
+          "downloadURL": "https://fastsign.dev/tg-ipa/scholars-lounge/80262-nuvio-0.6.1-full-release.ipa",
+          "size": 68517984,
+          "minOSVersion": "14.0"
+        }
+      ],
+      "subtitle": "scholars lounge | Nuvio Version: 0.6.1 Bundle ID: com​.nuvio​.media App by tapframe  Nuvio Full A free, open-source media app for your phone, your des",
+      "tintColor": "000000",
+      "icon": "https://fastsign.dev/tg-icon/scholars-lounge/80262.png",
+      "bundleID": "com.nuvio.media",
+      "fullDate": "20261017030045",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Spotify Taurus (v0.60.5)",
+      "bundleIdentifier": "com.spotify.client.ios.taurus.0.60.5.9.1.90",
+      "developerName": "Spotify",
+      "version": "9.1.90",
+      "versionDate": "2026-11-02",
+      "size": 137913652,
+      "minOSVersion": "16.1",
+      "localizedDescription": "Tweaks: SpotifyAudioProbe, spotifyglass\n\nThis is a modded version of Spotify. Vitrine is a fork of spoti.pw by Vojtěch Škopek, taken from 0.21.1 (commit c790445, 2026-09-23), the last version\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
+      "iconURL": "https://repo.ballermc.com/tubevault/spotify-logo.jpg",
+      "downloadURL": "https://repo.ballermc.com/tubevault/Taurus-0.60.5.ipa",
+      "versions": [
+        {
+          "version": "9.1.90",
+          "date": "2026-11-02",
+          "localizedDescription": "Tweaks: SpotifyAudioProbe, spotifyglass\n\nThis is a modded version of Spotify. Vitrine is a fork of spoti.pw by Vojtěch Škopek, taken from 0.21.1 (commit c790445, 2026-09-23), the last version",
+          "downloadURL": "https://repo.ballermc.com/tubevault/Taurus-0.60.5.ipa",
+          "size": 137913652,
+          "minOSVersion": "16.1"
+        }
+      ],
+      "subtitle": "Tweaks: SpotifyAudioProbe, spotifyglass",
+      "tintColor": "000000",
+      "icon": "https://repo.ballermc.com/tubevault/spotify-logo.jpg",
+      "bundleID": "com.spotify.client.ios.taurus.0.60.5.9.1.90",
+      "fullDate": "20261102040053",
+      "type": 1,
+      "category": ""
+    },
+    {
+      "name": "Chess",
+      "bundleIdentifier": "com.chess.iphone",
+      "localizedDescription": "Chess",
+      "iconURL": "https://apps.trystore.net/plus/com.chess.iphone/chess-assistant/4.10.22/icon.webp",
+      "category": "",
+      "versions": [
+        {
+          "version": "4.10.22",
+          "downloadURL": "https://github.com/afonsocampos10/repo/releases/download/ipa-chess-assistant-4.10.22/Chess_Assistant_4.10.22_yijvlhjo.ipa",
+          "date": "2026-10-24"
+        }
+      ],
+      "developerName": ""
     },
     {
       "name": "Mimo",
@@ -590,35 +755,6 @@
       "category": ""
     },
     {
-      "name": "Hevy",
-      "bundleIdentifier": "com.hevyapp.hevy",
-      "developerName": "AppTesters IPA Repo",
-      "version": "3.1.16",
-      "versionDate": "2026-10-03",
-      "size": 142569544,
-      "minOSVersion": "14.0",
-      "localizedDescription": "@blatants | Hevy - Workout Tracker Gym Log  • Bundle ID: com.hevyapp.hevy • Updated to: 3.1.16 • Minimum iOS: 15.1 • Patched • Modifier: Subscription\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
-      "iconURL": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.hevyapp.hevy.png",
-      "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/02-10-2026/Hevy_3.1.16_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
-      "versions": [
-        {
-          "version": "3.1.16",
-          "date": "2026-10-03",
-          "localizedDescription": "@blatants | Hevy - Workout Tracker Gym Log  • Bundle ID: com.hevyapp.hevy • Updated to: 3.1.16 • Minimum iOS: 15.1 • Patched • Modifier: Subscription ",
-          "downloadURL": "https://github.com/apptesters-org/AppTesters_Repo/releases/download/02-10-2026/Hevy_3.1.16_Subscription_Unlocked_@thisismanpreets_apptesters.org.ipa",
-          "size": 142569544,
-          "minOSVersion": "14.0"
-        }
-      ],
-      "subtitle": "@blatants | Hevy - Workout Tracker Gym Log  • Bundle ID: com.hevyapp.hevy • Updated to: 3.1.16 • Minimum iOS: 15.1 • Patched • Modifier: Subscription ",
-      "tintColor": "000000",
-      "icon": "https://raw.githubusercontent.com/apptesters-org/AppTesters_Repo/main/icons/com.hevyapp.hevy.png",
-      "bundleID": "com.hevyapp.hevy",
-      "fullDate": "20261003030048",
-      "type": 1,
-      "category": ""
-    },
-    {
       "name": "Scanner Pro",
       "bundleIdentifier": "com.readdle.Scanner",
       "developerName": "@blatants",
@@ -672,35 +808,6 @@
       "tintColor": "000000",
       "icon": "https://fastsign.dev/tg-icon/blatants/12838.png",
       "bundleID": "com.firecore.infuse",
-      "fullDate": "20261017030045",
-      "type": 1,
-      "category": ""
-    },
-    {
-      "name": "Televise",
-      "bundleIdentifier": "me.mumtaz.numan.televiseapp",
-      "developerName": "@Sa1y0miii",
-      "version": "1.9.2",
-      "versionDate": "2026-10-17",
-      "size": 27804256,
-      "minOSVersion": "14.0",
-      "localizedDescription": "@Sa1y0miii | Televise: TV & Movie Tracker 🧸 Min.iOS: [17.0+] 🧀 App version: [1.9.2] !upd  🪼 App Store: https://apps.apple.com/app/id6765939187 📮 Notes\n\nFastSign is operated by CertFish.\nThe easy way to sideload: https://cert.fish/",
-      "iconURL": "https://fastsign.dev/tg-icon/sa1y0miii/14397.png",
-      "downloadURL": "https://fastsign.dev/tg-ipa/sa1y0miii/14397-%E2%80%8E%20Televise_v1.9.2_tg@Sa1y0miii.ipa",
-      "versions": [
-        {
-          "version": "1.9.2",
-          "date": "2026-10-17",
-          "localizedDescription": "@Sa1y0miii | Televise: TV & Movie Tracker 🧸 Min.iOS: [17.0+] 🧀 App version: [1.9.2] !upd  🪼 App Store: https://apps.apple.com/app/id6765939187 📮 Notes",
-          "downloadURL": "https://fastsign.dev/tg-ipa/sa1y0miii/14397-%E2%80%8E%20Televise_v1.9.2_tg@Sa1y0miii.ipa",
-          "size": 27804256,
-          "minOSVersion": "14.0"
-        }
-      ],
-      "subtitle": "@Sa1y0miii | Televise: TV & Movie Tracker 🧸 Min.iOS: [17.0+] 🧀 App version: [1.9.2] !upd  🪼 App Store: https://apps.apple.com/app/id6765939187 📮 Notes",
-      "tintColor": "000000",
-      "icon": "https://fastsign.dev/tg-icon/sa1y0miii/14397.png",
-      "bundleID": "me.mumtaz.numan.televiseapp",
       "fullDate": "20261017030045",
       "type": 1,
       "category": ""
